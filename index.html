@@ -27,33 +27,12 @@
                 box-shadow: 0 2px 8px rgba(0,0,0,0.06);
             }
 
-            .header h1 {
-                margin: 0 0 8px 0;
-                font-size: 28px;
-            }
-
-            .subtitle {
-                color: #6b7280;
-                font-size: 14px;
-            }
-
-            .grid {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                gap: 24px;
-                margin-bottom: 24px;
-            }
-
             .card {
                 background: white;
                 padding: 20px;
                 border-radius: 14px;
                 box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            }
-
-            h2 {
-                margin-top: 0;
-                font-size: 20px;
+                margin-bottom: 24px;
             }
 
             table {
@@ -74,14 +53,54 @@
                 border-bottom: 1px solid #e5e7eb;
             }
 
+            td:first-child,
+                th:first-child {
+                min-width: 105px;
+                white-space: nowrap;
+            }
+
             .topic-cell {
                 font-weight: bold;
                 background: #f9fafb;
             }
 
+            .topic-cell a {
+                color: #111827;
+                text-decoration: none;
+            }
+
+            .topic-cell a:hover {
+                text-decoration: underline;
+            }
+
             .heatmap td:not(.topic-cell) {
                 text-align: center;
                 font-weight: bold;
+                color: #111827;
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 24px;
+                margin-bottom: 24px;
+            }
+
+            .note {
+                color: #6b7280;
+                font-size: 13px;
+                margin: 8px 0 16px 0;
+            }
+
+            .topic-news-section {
+                margin-top: 28px;
+                padding-top: 12px;
+                border-top: 1px solid #e5e7eb;
+            }
+
+            .topic-news-section h3 {
+                margin-bottom: 10px;
+                color: #111827;
             }
 
             a {
@@ -92,16 +111,6 @@
             a:hover {
                 text-decoration: underline;
             }
-
-            .note {
-                color: #6b7280;
-                font-size: 13px;
-                margin-top: 8px;
-            }
-
-            .full-width {
-                margin-bottom: 24px;
-            }
         </style>
     </head>
 
@@ -110,14 +119,14 @@
 
             <div class="header">
                 <h1>Market Narrative Dashboard</h1>
-                <div class="subtitle">
-                    Last updated: 2026-05-08 10:07 |
+                <div class="note">
+                    Last updated: 2026-05-08 12:13 |
                     Heatmap based on attention percentages |
                     Headlines shown from preferred sources only
                 </div>
             </div>
 
-            <div class="card full-width">
+            <div class="card">
                 <h2>Narrative Heatmap</h2>
                 <table class="heatmap">
                     <tr>
@@ -131,98 +140,260 @@
                     </tr>
                     
         <tr>
-            <td class="topic-cell">Inflation</td>
-            <td style="background:#7f1d1d">27.1%</td>
-            <td style="background:#7f1d1d">27.6%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Inflation')">
+                    Inflation
+                </a>
+            </td>
+
+            <td style="background:#fca5a5">
+                27.0%
+            </td>
+
+            <td style="background:#fca5a5">
+                27.3%
+            </td>
+
             <td>212</td>
+
             <td>83</td>
-            <td style="background:#bbf7d0">18</td>
-            <td style="background:#bbf7d0">52.7</td>
+
+            <td style="background:#bbf7d0">
+                18
+            </td>
+
+            <td style="background:#bbf7d0">
+                52.7
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">AI</td>
-            <td style="background:#7f1d1d">22.1%</td>
-            <td style="background:#7f1d1d">21.3%</td>
-            <td>173</td>
-            <td>64</td>
-            <td style="background:#bbf7d0">4</td>
-            <td style="background:#bbf7d0">39.3</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('AI')">
+                    AI
+                </a>
+            </td>
+
+            <td style="background:#fca5a5">
+                22.3%
+            </td>
+
+            <td style="background:#fca5a5">
+                21.7%
+            </td>
+
+            <td>175</td>
+
+            <td>66</td>
+
+            <td style="background:#bbf7d0">
+                6
+            </td>
+
+            <td style="background:#bbf7d0">
+                41.0
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Energy</td>
-            <td style="background:#b91c1c">18.9%</td>
-            <td style="background:#b91c1c">17.6%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Energy')">
+                    Energy
+                </a>
+            </td>
+
+            <td style="background:#fdba74">
+                18.9%
+            </td>
+
+            <td style="background:#fdba74">
+                17.4%
+            </td>
+
             <td>148</td>
+
             <td>53</td>
-            <td style="background:#dcfce7">2</td>
-            <td style="background:#bbf7d0">31.9</td>
+
+            <td style="background:#dcfce7">
+                2
+            </td>
+
+            <td style="background:#bbf7d0">
+                31.9
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Geopolitics</td>
-            <td style="background:#b91c1c">16.2%</td>
-            <td style="background:#b91c1c">18.3%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Geopolitics')">
+                    Geopolitics
+                </a>
+            </td>
+
+            <td style="background:#fdba74">
+                16.2%
+            </td>
+
+            <td style="background:#fdba74">
+                18.1%
+            </td>
+
             <td>127</td>
+
             <td>55</td>
-            <td style="background:#bbf7d0">16</td>
-            <td style="background:#bbf7d0">36.9</td>
+
+            <td style="background:#bbf7d0">
+                16
+            </td>
+
+            <td style="background:#bbf7d0">
+                36.9
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Growth</td>
-            <td style="background:#facc15">7.9%</td>
-            <td style="background:#facc15">8.3%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Growth')">
+                    Growth
+                </a>
+            </td>
+
+            <td style="background:#d9f99d">
+                7.9%
+            </td>
+
+            <td style="background:#d9f99d">
+                8.2%
+            </td>
+
             <td>62</td>
+
             <td>25</td>
-            <td style="background:#bbf7d0">11</td>
-            <td style="background:#bbf7d0">16.1</td>
+
+            <td style="background:#bbf7d0">
+                11
+            </td>
+
+            <td style="background:#bbf7d0">
+                16.1
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Other</td>
-            <td style="background:#ecfccb">3.2%</td>
-            <td style="background:#ecfccb">3.0%</td>
-            <td>25</td>
-            <td>9</td>
-            <td style="background:#dcfce7">2</td>
-            <td style="background:#bbf7d0">5.4</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Other')">
+                    Other
+                </a>
+            </td>
+
+            <td style="background:#f7fee7">
+                3.3%
+            </td>
+
+            <td style="background:#f7fee7">
+                3.3%
+            </td>
+
+            <td>26</td>
+
+            <td>10</td>
+
+            <td style="background:#dcfce7">
+                3
+            </td>
+
+            <td style="background:#bbf7d0">
+                6.3
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Labor Market</td>
-            <td style="background:#ecfccb">1.8%</td>
-            <td style="background:#ecfccb">1.3%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Labor Market')">
+                    Labor Market
+                </a>
+            </td>
+
+            <td style="background:#f7fee7">
+                1.8%
+            </td>
+
+            <td style="background:#f7fee7">
+                1.3%
+            </td>
+
             <td>14</td>
+
             <td>4</td>
-            <td style="background:#fee2e2">-2</td>
-            <td style="background:#dcfce7">2.0</td>
+
+            <td style="background:#fee2e2">
+                -2
+            </td>
+
+            <td style="background:#dcfce7">
+                2.0
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Private Credit</td>
-            <td style="background:#ecfccb">1.7%</td>
-            <td style="background:#ecfccb">1.7%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Private Credit')">
+                    Private Credit
+                </a>
+            </td>
+
+            <td style="background:#f7fee7">
+                1.7%
+            </td>
+
+            <td style="background:#f7fee7">
+                1.6%
+            </td>
+
             <td>13</td>
+
             <td>5</td>
-            <td style="background:#f3f4f6">0</td>
-            <td style="background:#bbf7d0">3.1</td>
+
+            <td style="background:#f3f4f6">
+                0
+            </td>
+
+            <td style="background:#bbf7d0">
+                3.1
+            </td>
         </tr>
         
         <tr>
-            <td class="topic-cell">Supply Chains</td>
-            <td style="background:#ecfccb">1.0%</td>
-            <td style="background:#ecfccb">1.0%</td>
+            <td class="topic-cell">
+                <a href="#headlines" onclick="filterNews('Supply Chains')">
+                    Supply Chains
+                </a>
+            </td>
+
+            <td style="background:#f7fee7">
+                1.0%
+            </td>
+
+            <td style="background:#f7fee7">
+                1.0%
+            </td>
+
             <td>8</td>
+
             <td>3</td>
-            <td style="background:#fee2e2">-2</td>
-            <td style="background:#dcfce7">1.9</td>
+
+            <td style="background:#fee2e2">
+                -2
+            </td>
+
+            <td style="background:#dcfce7">
+                1.9
+            </td>
         </tr>
         
                 </table>
                 <div class="note">
-                    Darker colors indicate higher attention. Change columns are based on mention-count differences.
+                    Click a topic name to jump to its latest trusted headlines.
                 </div>
             </div>
 
@@ -239,31 +410,31 @@
         <tr>
             <td>Inflation</td>
             <td>18</td>
-            <td>27.6%</td>
+            <td>27.3%</td>
         </tr>
         
         <tr>
             <td>Geopolitics</td>
             <td>16</td>
-            <td>18.3%</td>
+            <td>18.1%</td>
         </tr>
         
         <tr>
             <td>Growth</td>
             <td>11</td>
-            <td>8.3%</td>
+            <td>8.2%</td>
         </tr>
         
         <tr>
             <td>AI</td>
-            <td>4</td>
-            <td>21.3%</td>
+            <td>6</td>
+            <td>21.7%</td>
         </tr>
         
         <tr>
-            <td>Energy</td>
-            <td>2</td>
-            <td>17.6%</td>
+            <td>Other</td>
+            <td>3</td>
+            <td>3.3%</td>
         </tr>
         
                     </table>
@@ -301,230 +472,760 @@
                 </div>
             </div>
 
-            <div class="card">
-                <h2>Representative Headlines — Preferred Sources Only</h2>
-                <table>
-                    <tr>
-                        <th>Date</th>
-                        <th>Topic</th>
-                        <th>Source</th>
-                        <th>Headline</th>
-                    </tr>
-                    
+            <div class="card" id="headlines">
+    <h2>Representative Headlines — Preferred Sources Only</h2>
+
+    <div class="note">
+        Showing: <span id="headline-filter-label">All topics</span>
+        | <a href="#headlines" onclick="showAllNews()">Show all</a>
+    </div>
+
+    <table>
         <tr>
-            <td>2026-05-05</td>
+            <th>Date</th>
+            <th>Topic</th>
+            <th>Source</th>
+            <th>Headline</th>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Labor Market; AI">
+            <td>2026-05-07</td>
+            <td>Labor Market; AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxPRFJjQndGci1rM0FtaVNKWVI5OUxXZDBpSkFuWHduaG1mY05mRVA1TExDUTF6VUZSQWJEb0tEQXVPS1FzdllucmMzNE9FYkFuamtjakVsOUJPODYxZ3VPdnJEMU9uUEdZTmlwcXByR1lwWXd1NjdzdlBubjFlaFI3OWZvejhXUUpKWlpKeUUzdzFyVHJ2VEFiZUh6RzhTWVpnZWlteVR5cmZGSnU4LTVjV21hUDNxSmJRdXI1VFRR?oc=5" target="_blank">US labor market stable as layoffs remain low - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Business Insider Africa</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi1AFBVV95cUxOSG9EZTVtRURpcndkQUh2Q3liRTVYaDFINV9mc21LeGlaY3pNN1VmcnNCaTVrTTgyVXBDUnN1YUg1ZlRiMU5CUElyXzRFdjV2M21aSVUyY2g2aWVQM2pQRldkT2htdlpOZlFKdzNKaG9wRldtSHBGaG5sRmtXeFNsRTBBclpzek1MZkRqSEdPLWlOU00wV0p2d2k0NGpmY3JDb3Q5UVUtd0lJTnNLTGdiNW5Lam04U21QYnJBSFZwWWpxRlBuX1VPU2dNd3FQTDNkMXpmdA?oc=5" target="_blank">SARB keeping options open as global tensions threaten inflation-Kganyago - Business Insider Africa</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; AI</td>
+            <td>Seeking Alpha</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOMjlNOVB1c3daRnBQTjBUZGpQOThKMzB3bDlaNUI3dzVPZkg2dDlJVzZXMnN3QjhSZ3JLeTlLcnQ0d2h2U2JIdkRXS2pEa2lZM2tSV0Y2ZVE1eWprb3htMVppWkdnbmstZ2RvTEtjSlNMbXhIZGFoai1BQ0pxcnBDRkpzQXV3d1VCMEhYdXQ5T3gxNTdWZFZack9JT1kxQnBDUXlST1o3WEppUS1ocW5relcwTzZjYUVUZVhvTTc1RHJndw?oc=5" target="_blank">Deglobalization is gaining momentum and the inflation consequences are real: TS Lombard (SPY:NYSEARCA) - Seeking Alpha</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
             <td>Inflation</td>
             <td>Bloomberg.com</td>
-            <td><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxOVERScjNySFFEZUk1NlpJang4X1B4M3Z0UTdIV2dGZGJfS0VMTEpwV3JjRTRBWFYzTml2ak0tLUR1RW0zRGFYWXo1SU40RXFVMS03OUZQNk1TR3dyXzliaUFtTy1MQmFta1JpMEY3OGhRVDR2a19obW91WGF5VGFxSEVMSUdjX0M1bzdSUEYxMTdxR1lDNENLOXFoTVlzdG1VY0NUT3lnb08ycWxtUkRj?oc=5" target="_blank">Watch Inflation Pushes Bonds to Breaking Point: 3-Minutes MLIV - Bloomberg.com</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNbm5pNkZUOTZlV3hpOXZPSzdrazhWWkl1dkl1WHlPRXRLdDN0dmVNUVlmenNrOXM4TnJYT1BXUDNlU20wNW15Q1lBRkpOLXVWQXlhUUxITmZadjYxSmxlV1E2aDduN21iaktnUUI1QUM2TFVtSTVsUzNlaFFxNWZYVXhkOFdtVUxLQmJ6M3ZPcFM3SnB5eWhybnpJdEY3d0hKVmp5cll2dW9ieXJ2TUg5Q0RB?oc=5" target="_blank">Short-Term Inflation Expectations Edge Up, New York Fed Survey Finds - Bloomberg.com</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Geopolitics; Energy</td>
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Bloomberg.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxQVnJfSHNWNnNsSzdERF9raTRCY1kwSHEyYWdodmxYQmdKM0piOHJrRXdaQk44QXZUb1loTmJFRldWb2xHTnNCNkUxTmc5cHVZQWxoZWZBdTBKSXp6OW9qdl9kQWxhV3VZbHRzTHBzXzM4M1FFNUFwOG1NY2o0RGN4YThBSjFNcXFEY2RVa3VOOTBaMDNMcEg2cXR1TmRHbl8zSExCdklqX1hDdHc?oc=5" target="_blank">Watch Inflation Genie Has Been Let Out of the Bottle, BMO’s Davis Says - Bloomberg.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics</td>
+            <td>Seeking Alpha</td>
+            <td><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQdHVWQ0tSdE9oQklzUUFiV2pEeXJuemhIYTBRVWtULWpkRnNFdFVRUTg2Z3dUdWdlX1gwZU5Ia1FuOGQ4Y1piZy1MemF3QTJDUDZnenF6MjlmMnRTQkx5Q1p3c1EzM2hvZFBNVTJScFNmUWRvd0tTbHNHU0ZUdlU1dnZuTDZJblBGSjB3bTFfQUtXc3lFY29jUFdORTFWalZQRGE3VHNod1h0Vm1zdG93ckJRVjI0U0loc2FQbW5R?oc=5" target="_blank">The Price Of Peace: Iran Negotiations Could Decide Whether Inflation Breaks Or Builds - Seeking Alpha</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Growth">
+            <td>2026-05-07</td>
+            <td>Inflation; Growth</td>
             <td>Reuters</td>
-            <td><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxOeTlLU0pJT2ZwQnowa3g0eVA4RmtVS0h5blNONUR2ZjNndlhNaXFSam9pUWRMcGpzR3dobWQ0UFJ0N1JxZzVUNFdDbXlVZXcxOXJ0N0FvdmxGTGJuQlNfVF9iMmFpOFA5UnZpbTZLcWpGMld4anpxRzRNYlQ4dUtvQnVwclY4dlFTMHV1R0MtelJjM2pNSnFJUUJKdWNIRG90WERXSFlJM0ljVzdoY0xTQ1plU3Q?oc=5" target="_blank">Oil extends slide as Trump indicates possible Iran peace deal - Reuters</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxOYmFDUWR4YVZRS0NvSi1nS3NiS0tLcmZWdnc5TTVMSHZqYmZYYi0tSHdXYnVyUjRZY3pGMU83dXpXUGYtdkpJc0JUdkdkRzY1V1FkNWdQZXN4WmxEUVVmeC1DS05KdXNidGVsRHczRnJkY3lQNHBiSG96aXo3UlI4UGFZU1JPM1dpWE1tY0gxM0h3R0w3YWptaVA0WUxpdGhoazVkQXlzYnBYbEdFQzJRLVNZYkdoMnpxSXBDZ3hHeW1YcnNZa2c?oc=5" target="_blank">Argentina analysts hike up 2026 inflation, trim growth forecasts in central bank poll - Reuters</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQOXRSZ2hxSEY2a180enZhTGpDYTdmX2JjM0ptNVhmN2k3UlJVN3pQc0dlZUFUNm44aXBjQldNb3VJNkUyelZkdjZCRHBUNUp3THlQbjFTbHp3R0JKeU1ndUkyV0t4ZGJZcTljcnUxUjlnU0ZPVGEyX1VGa0k1WVNPUnJmbFhxQ0h4d2ZaQmZNRmlFUHZvUXROakxXU3psUzZmVkFFMG93?oc=5" target="_blank">Mexican headline inflation eases for the first time since December, paves way for rate cut - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; AI</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxQRDBuNzlpSVhyYjJJV1M4Tm1ZUGNpOGQ3dnBUYjlxZkJaUUFaUU14Q0hWTGkxSWZSUHNxa1duOUs0OTVYTkNpc1IyazRFVEIzblBSU2NXTHBxRUhUS0gtMGo3d0t1cHdMTW8zRl9FNk9qMldQQzhSZ0RkUGx0bG5iWDNhUkF6bjk2UXFaSjJxSDlYTUJxTkptM2YxZUlidVA40gGmAUFVX3lxTE54VG9ndkd0QUJrUHJ2OXRTbGVOdV9lbG4zT1hkMF9yUE5IXzJrQ0s3RV8zbTk1YXFNcW1KRS1SaGp5ZUtGb3lselp5T1N0NDM1WmQ2NVpxWVhfX0VrUnNDamtPREN6TkFVZlRTUzRCMmo1V3E1NXk4VW1Fd21BaGZPLU9JVGVGeVBVX05XWXVmSVlJc29oM2hXeC1PQklzWUNZclpTZFE?oc=5" target="_blank">Norway's central bank raises interest rates to curb inflation; European stocks end lower - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Other">
+            <td>2026-05-07</td>
+            <td>Other</td>
+            <td>Morningstar Canada</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOajZ5ejV3SWFVeFMzOXROam1MV043aWJhYW9KM1A5RDBkSDhNZ2gwYVY2M0pDejg5c2tSOGkxSlBQR1kySzRkQ2tpeVBFVmdSUUtLUTBidnZIREplcGxwZFJUc3lKMWd5WFZFRnY1UFZxR0xmc05HMWhyVWZobzFLcmRQU0pZN3I3TFFGcnZLejVEMUZBZUE?oc=5" target="_blank">Sweden’s Riksbank Holds Interest Rates Steady - Morningstar Canada</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMikgFBVV95cUxQMVVSY0hWY0thQWlhVG0wa2g2TjlRaVh3bXdRdXc0SnpfdlZHOVJEeXlJMlBhcGVzUklPQ29JWG9ZN3FMUzRRMWFOZDVNMFdNTVk4UTJNcXR4M2ZzakRIdG4wOHZKNUI3ak1NS2xrWXlLcTFoN202NENrSFM5bHI4N293aGdkV0NCejZUQzFSUEg2dw?oc=5" target="_blank">US Stock Market Today S&P 500 Futures Inch Higher As Inflation Worries Ease - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; AI</td>
+            <td>WSJ</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxNS2tSX0VodG9IbVIyYUM5S3NTTnF3bWRFeHY4VV8tMXh1MGpudjBzRTFpYi1MRl9qUkFDNVZVdV80RlhCelNkcVEwbTF0WkZWci1jdGw1VFRYN3pzWjE5OGxrV1p6ZU1MMEtDZDlEYWNsX0VGYjBwcFZXWUxXdllLMlNlc2RvSE1NVENsbVFfM05TSmNWajN2LVVlbEQtNm0xV1ZFdXhXZkFVdFBNWGZrTEhmeE12bFlYTmpxTjBVNkRVNlRLQ0tMQ3JZdDctN1NCLTJwNXMtcXM1UndaaTE4akRldw?oc=5" target="_blank">Inflation Forecasts Reflect Rising Concern - WSJ</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Growth">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; Growth</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQWk5DOHd5Zk9BMk9jS04xYW5FNFpZSWZaSVE2Y2hDYnhUVHpiejZJM01MRVZJdWlnYzdqQk9lUHhlZ2NKNzBGUlNzWnVGYjVvQkkzdGptUTVmOUpHX3gtWTBlZUhHU0ozTzF5QnhUSFhYanRJRXRGVFZmSkhVOVNHWWdkMjBXZ0kzQVUweHg1N3loNENVYkIw?oc=5" target="_blank">Gold Surges Past $4,770 as Geopolitical Optimism Cools Inflation Fears - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Other">
+            <td>2026-05-07</td>
+            <td>Other</td>
+            <td>MarketWatch</td>
+            <td><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQaHN2MUhpSVZ2VnlOUkZ6N2JDcmktSTZkZUt1amI0dEFMNi1DYWRIOExSaFZQM3FZN3MweGFtTDM1c09QamJmeFdQdlhISjV1d0NJQ1ZSMWhKM0UxZEVzQVZaYlhQb3JvRjNPejRFV3NiTmlvTjc3TXpta1kxVHgxN00zd0lkLXFOdV9qV1FqM0xud2wtd041Sk40ekxfOG44YUp2Q0dGamY0R04tLUFURlln?oc=5" target="_blank">There’s a new worry keeping Treasury yields and borrowing costs higher - MarketWatch</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Labor Market">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; Labor Market</td>
+            <td>Barron's</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxNN1cwU1V3R3NJYWhVd2VHUjFJOVF4eHlBczlXb0pCUkFaZ2Nrb1VmTTIzeVY2b2lBMnVWM2Y5eDN6ZkZ1UFNnZEg2dDYwc2kycW1rVVJCVUE1bXVXc2cxdk16RWNtRTVuVkx5dmJjSXNUbGlYeUNJWGpLSWZ4N1NhWER1blJmQWV0eFkzZkVIczlNamJpczRMOWl1MWY3MkpGbFdfMXdVdXA?oc=5" target="_blank">Iran Talks, Fed Rates, Jobs Data, Inflation. This Market Rally Faces Big Tests Soon and 5 Other Things to Know Today. - Barron's</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Bloomberg.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPdUt5Y1E3V3Y3RXdnOU84VllGUk5wdnlJX0Z4RHkzbmlGYV9CRFoxUWl4cjVyZ2dxSEFQeHVzcmFaTGlCUTI0N3JET2ZrQWZWckhXZUFsOUtzWV9ockVGOHdHWEhSMTBxUTA4TmFtRXhJdmFDb21iMWFLTTk0Q1RYSERVeXlGUXFYVnlPUGZrQ1dvMWFFR1ZJZ1NBczgtTndaSmt3MDRlNldLalk5T1hJYlI0aFY?oc=5" target="_blank">Venezuela Floods Market With Dollars to Ease Inflation Pressure - Bloomberg.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; Energy</td>
+            <td>BNN Bloomberg</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPVmVGWWhrZEYtMVRxSzQ0SUNmOWhGVS1kUFdFaE1scnhxaTRIYlBuQnVKX013OS1uTzB5U0Y2enh6dzF6VGI5d1Fidi1FOEcwY1VVQ2lxcW05UHdFZTlHRnM1TnI0dmowUnlqUlJaMDNNZkJPRWpoTEFJOTJfbjgwQ1U1MXZsRXVlaVY3WHpoRC1wU3lpc0l5M2l3VVpPZE85bS1nVzJXbW1adzY0UlV5Q0t0ODZaMEloeVBJLTJacEdvTmtfUmpLMFlR?oc=5" target="_blank">Market Outlook: Crude prices cool as traders eye Iran negotiations - BNN Bloomberg</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; AI</td>
+            <td>Investing.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi4wFBVV95cUxQVW1LcndXdGtPRUk3ajZCMmlvRXpPV0FFSzVkMnNYZTVFaHM4Y2NON0czZTR4MWRqQW5GNEtCSVprVzNIalUyaTYzU2h6clh2aGlsVUNRY3IxT2Zkc2Vva0h1VzZKVkFGdUtPOVBnU2FjblVRb09zQm9sTXc0Z3FpNk1xZG1YZEFUNmcteE85bG56b1pvWWl5Vjg5Y19EY2FWVlg5X1poVEhQTXJxVmY2cm9HSE44dVhad3lST2p6bnBnTnBaUUFidGRLQXRSM2FvSG5aRHU4TjBhdnQyelo0RG1sYw?oc=5" target="_blank">Taiwan inflation rises to 1.74% in April on energy costs, BofA sees further price pressure - Investing.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; AI</td>
+            <td>Bloomberg.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxOVzhYQ29UZTFrdzlCaHBiZ2NzVnI5bUlGWkFVZUpJb3huWDNHbGxjX014WUhCVnNlaF9qcHZ5ellTdWsxTnBQNlNZQmV1WWlrN2dqdTktZUludWZyMmtVNmtPcjk4TldJVHVaQUgzN2I5cmVzUGRmM2VodDFKaWhodTUwSU54UUcyTy1HM0NIOTRNWDlSRlA2bHk4cVBycW1fMElveU5jS2hnbXd1Mk1TSGZOcw?oc=5" target="_blank">Gold Holds Gain as US-Iran Truce Hopes Ease Inflation Concerns - Bloomberg.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; AI</td>
+            <td>Forbes India</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxQLU1IMDlyMl9NZzVpak1idlJNc3ZQRnVtLWp4bFczd0ZPbFNBTTZSeHk1SlR0WjZjYTVmeGx5MjllSG85RHEwMk5HSFQ3WllGa2VlNjNXU0lkdmxZNklQTWJmU0tOX3Qxd2dwTDBpcExycDlOWGlSMlRLMk1NWkRrOUxDVE1ycmMtcWZIY1UwQTVZTVJCUUhweEZSVzd0dHcydlYxTVh2MjJ3MHlSdFgtQzZVN0VJMmw0UF9fTERlT1BTYWhzWFhDdUl30gHPAUFVX3lxTE5OQXJlcllrbDhINDR4N0ZDR3hzWWxCbGFaYzZ0U1RyQ19Dak1EeHdTY29qS2tRblZpV3E1YTduRGgwbklmQ2JKcnNzVVBsWDZ6UmJrOXRrSjNEdllMWVhzU3p2bEZjRlQ3RXpWckI3VmdaME9xakx3b3lYZXlzTkctOTRROTNMRFJzQ1RfaGRGQk1Sdm9tTUR4UWdHa0JCMGxOV3Y0VFB1Z1VtUmh5N3kwLU5XVzh5MWRfdzJTdzFMcXo0c1phYjVqM1Y2VXZKSQ?oc=5" target="_blank">Why markets lack confidence despite poll results in West Bengal, Assam - Forbes India</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Investing.com India</td>
+            <td><a href="https://news.google.com/rss/articles/CBMizwFBVV95cUxONHl1TEtibVloSjB1M1J2a2lnNEpHdXBUTkRBZUtYOVBWZGw0a1MySUN0d1BBbTlLYWE1WGNrbEV4TXNreFRYc3JCNmVlaER6bThPZ0RjdlRIQ3h6WDdQWTRzbm0wY2ZrcTh5eHpTSFZneDI1NFpjVU1EQnhsWmNQTHlydFEzWUhsaXpiMW0wR205dmxiOWxFYzBaRjJJVlhvT2RocEpHVzFNUExwS1Y4dmg5UHlvblpoRGw0X1huRVpTb18xOVpnQXhhWlEtckk?oc=5" target="_blank">Americans unfazed by inflation concerns despite rising prices, Fed Survey shows - Investing.com India</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Growth">
+            <td>2026-05-07</td>
+            <td>Inflation; Growth</td>
+            <td>Investing.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi1wFBVV95cUxOMmVFUGthRFdrX0N4QnVZZDVJeDZNV2o3LWNxZmVORDNYNUpfWk0wd29aTzNod2FEUnE1RlV4VFM1RzZVYWZLLXRMc2xBVnQtSUdQLWNPQV9haHkwREd2WFlvam9GV1Q3TmE3ZEhobDgxNHF4dDl4ZC1KTlZZYkdNcTNjQW1RRmpLbmZBWjd2dFVQWVhJVEh2WlJTc0d5R2lTc0xKb0pCQU1MZEhGUWdrRElxcnNfVmRFaWY4NnloR3NmZVBtcENhZzBJU25ZNmdyd1d1YmRHQQ?oc=5" target="_blank">Bank of America forecasts Philippine GDP growth slowdown, inflation surge ahead - Investing.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMisAFBVV95cUxORkNxdV95MWJ3RkhNVjVvN0lIal9ERW44VW1NT0ZJUjN6YzZrZHY5UmJBcy1iTmdxc1BzQ3loQmlBYm1NZmJJLW9FWjFZb1NrdGJuNk9zMFhzbFVBRlgzUTBHTkwwS05wX25WTlRNY3RwOFp0YVhQbzJuNmdkVElwdkRnNlJKQkVZaFM4Rkk3YjJWOFNmMmd0bWJFemViMmphZGJCTkJfMDBYTklOTXYtSA?oc=5" target="_blank">Morning Call Sheet: Earnings strength offsets war and inflation fears - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
             <td>Inflation</td>
             <td>Investing.com</td>
-            <td><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxPN2FKNmVIMy1CWUpfY1JnZWpXd09td01yLWlvVl9vQVpSX3lnVXlIMmxUOGVockQyTzN0ZWpQd0poY1NzMTMxUTd2Yl9hMlJnc0huQ2U1OVBfSUhyWlZvb09DQTRRUHhqcWpRamVuRlV5SFRta0xTN29takxHU2ZUM2dEdjNGV2Z0TjdQLXpybld2bjhMNmhQOTlPMEQ1d1ZxdHJlVTdhakQtdWllcGlUUlI3dw?oc=5" target="_blank">South Korea April consumer inflation +2.6% y/y, as expected By Reuters - Investing.com</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxQN1NqWXNGMDBTOWVRY1hOVFhkMldqZEhQaWlCR3lvTTVtbFZuaDBoOEp4ektWcl9yUDV1eUpycV9ubGNLQUI5WVJ5Zmd6Q0ZweTRBdUc2VVh6a3luZ3FQUVozeXBxSTJKYU44a3JIWUVJa1VsMThxOVRBbXZHdW9sbVpGbzU3eHpKbW13RmFhTndzTUw4eWp2SWJpbWpuT0VPaXZ4UVhXamRnVVFrdXBNVVNB?oc=5" target="_blank">NY Fed finds stability in longer-run inflation views in April By Reuters - Investing.com</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Geopolitics; Energy</td>
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-07</td>
+            <td>Inflation</td>
+            <td>Bloomberg.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMitgFBVV95cUxPOXZKd0V6VVRCaFRNanJaYVpaWmJ5d2pwSGdQb2xRRVdIMVBCeVVWM3c0NjBOdlQwS1BDYUI2VFY2eFpOZUFmbVBXNGtsSEg4alBKbm1sNXZTYkFwclp3bHdhdFFIck9IbGhoQlY5Z193ZEd2M3lpSk9UTnBaUVlTbUY4V1dCSnZXSmE0bGVXM09qeW5fWDc0M3A2VEtiX2dyZHlhckRCcFdMaE5Sc3dTX0c3X1hQdw?oc=5" target="_blank">Ethiopia Inflation Back in Double Digits on Biting Fuel Shortage - Bloomberg.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; AI</td>
             <td>Investing.com</td>
-            <td><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxPczZKb2R3RWZjTkhJWTl5NWFNQkpEUlVWVGpQVFNJQUt5U2NETEFRUS02WS1oM0VWS1FITTVXZVNKY2p0QUppM1hyQWNuSlpIWmRRXzZMSXdmLVFCcmhjam9mWUtiaWlPclFHRUdPa0c3cjNXa2l3SDY4OElNRjlfVTg1WlQ1Z3RMX091UUZnZVREVkVmODBJdHBqU0I5Zw?oc=5" target="_blank">Latest Middle East Turmoil Revives Inflation Worries - Investing.com</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxNUDJaaFFITklKOVRja1NNXzNkZjF4cjRZb1p1N3J2Vjh2MjF0OGdJb00weFl1VGNCSTRqVGVjX2RDbzlsTVhDT3YyejdiR05WSXhHcnNQTjlpdVdpdlRZTmtEYzdKSkFzdUpyUVZWalRZYnRyaUhSV09DTVRqTWpkRHJjUGx1RmRvNVd4LXpEV2h1SURZaHJzXzViV0hzZEZYWV84dkh5SEE4ekctMnRXMWRVMEJBcEx4VWtfYw?oc=5" target="_blank">ECB may raise rates if Iran war impacts inflation, says Schnabel - Investing.com</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>AI; Growth</td>
-            <td>Bloomberg</td>
-            <td><a href="https://news.google.com/rss/articles/CBMisgFBVV95cUxNQ2dsUXpaQzBrSXNOV1NuNHRtTmt2aWx5R3N6UVR0UHpmeHNYS0RfeGNKNDByNndLWGxuTDRRTUh0c0hSRG5EU01iR3lUODhIWU0wUDQxSV9mbTVDamVNN2o3Q1dZZ25ZT2VLS3pMeFZkOVR6WGZjYmM5dUVpOUNFbV84MVBNRFlid1dscHZyejlYZG43cXU4SUQ2TVZjU3loMGtGTUd4R3Qyc19YRmJnVDlB?oc=5" target="_blank">Asian Stocks to Track US Gains on Truce Optimism: Markets Wrap - Bloomberg</a></td>
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxOa21wcmpORlVhZVFvRWs3QmduODVRMU9TenpJWXNIX1dpVUFFNzRleEQ0OVFGdkx1dXRkSmN5dXpSNlB1SmZrQ1d5V2czZVZZR3ZLcy1LLUlGRzVOS3Vib01ESGtiTlpDakVjdXFmR2NfWUFWdFhkWWZrWkpSQS1vQlZvbE5UcEVBQjEwQk9jVDFub0RnRjRvSWd2SUhzMWFnRmZITA?oc=5" target="_blank">Gold gains as US-Iran peace hopes ease inflation concerns - Reuters</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Geopolitics</td>
-            <td>Yahoo Finance</td>
-            <td><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPSm5ESG5relpEMTJ3VmZBSWV2ZXBfZGlwZUFqNVc4QnhRUVhUU1ViZHNsRE1wZ28xWENGRWRlQnVCN3FsWkRBLUszenRlMEdwajFUbFVRYUlpRmdvcXRVQUlKVURGS05JdmZOTloyR254M1hIbnhDWUpGNGtXblNDSXg0cmtkdko3UkdVem9pUi02MTRDOS1BcmRSOA?oc=5" target="_blank">Bitcoin Won't Crack $100K This Year, Galaxy Digital CEO Mike Novogratz Says, Warning Of 'Ugly Inflation' - Yahoo Finance</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Energy; AI</td>
-            <td>CNBC</td>
-            <td><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxOREU1UHJhekxzOS0yQm1tdjlPRE5XQm5LSkRWTDc3ODJwTjhqb2lYUmt1RHVnR1NIWHU5ZzNoR19uRWRzazlGekRqVDFZOG1UUEpENkJ5eUR1bmF4Y0RLOEw0Nzh3VmFLV0o5N2Z5VHhNMlFHMklOdWhHUWs0MGMyblRpZThKQTdtLVVVdkNFNWZGczh1VXVqS1BhdHlNcW5OWE1URVhFWFVFQQ?oc=5" target="_blank">Oil prices above $110 are starting to matter to the stock market again - CNBC</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-07</td>
             <td>Inflation; Energy</td>
-            <td>MarketWatch</td>
-            <td><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxPWEpqV0tYNnFkbkhOZW9GaUs4OHdFVGNYZnJFMURSSGJ1ZmFsTzFvVU1ma3ItSlg0SUR2NlAxbHNNQmU5WWJCXzUzdW1FSlhaTWJSQ3J2VEh0RElfdmpCeWU4b0NTM3RHdjNWUURJbDFWeVNfb3dZMzRyZFRMXzh3eUJmSlJheUFscGcyMTlMa0lWZWNYcHhlY2xXLWpKeXRBSU5CWGNQUFFBczl1?oc=5" target="_blank">There’s one reason why $200-a-barrel oil can’t be entirely ruled out - MarketWatch</a></td>
+            <td>AP News</td>
+            <td><a href="https://news.google.com/rss/articles/CBMimwFBVV95cUxPV3Jxb2cyaDN1S0dxdk1LcFNoLXNaWGp6SXV3R0pHNk5yXzJwVVR1RVJRNE5Jd2RSZGRUVXZ6ZE5pZnNoVW0xcHR3OC01RVZhY0pqamsxVE1tSVBVMEZlclZGeE9MRWx3U0JsQ1haWWZ1U00tZ3E3X0tQaDc1eXMxQ011dGQzMGFPX3JEcHhrRjlJVGZVZzFfQmZpYw?oc=5" target="_blank">US stocks fall from their records as oil prices yo-yo - AP News</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Energy</td>
-            <td>Reuters</td>
-            <td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxPZTZ0LVpvcnZ5S20wVGpXU1gtNzhQV2tSTXNvLTA4VDYySHRpM250TVI4cjVycEtZRUdXM2pIVDNIYWFIejl0V0diVGx0Ylp1WFFCWVVpWHdHcHFMOVotSk81TjhUMnJCS0NJOFBzTVB4T0x4Y251dFRtUUEzdTRtX2xxZw?oc=5" target="_blank">Wall Street stocks touch records on upbeat earnings, dip in oil - Reuters</a></td>
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Energy</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNdmdBV3VEMWh4amVKTU8wUUJObGc2V09NMll5VXNXZkc0a3BWaE9rMHFfb3BKNUQyM1J3YmVyMmc3bXplQU5NNTE3czlEY2lOemJUS1ZkUEItMTlxRFNPT284TkZLVC1uT2F5Sk9fdklSeUpkbFBrcXFTem1yenBZNUFPQldLc1lCTEprZWhqUUxmVFNhM1ZkRFVn?oc=5" target="_blank">S&P 500 Reverses After Hitting Record High as Oil Prices Bounce Back - Yahoo Finance</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Energy</td>
-            <td>Reuters</td>
-            <td><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQbnNPYWRxV29ucGhPLWtGbnhRNzNYa0F5aXVKYjNiR2VHMWduc3A1c1BqeU1CbUtobHpXazRZX0hGTkFYZ3czNDBxNVBEZnliVjR5d1FacXR5TW1kZ2xXM3pja0xfdlRlVEVBX0tXSmpwaXBFYTNlbE1uZjlyckJvSHNzMnpCWjhEMExReTlhY1F4NFZ4M3hBbFk2Nk5FM1pKUHU1dVpxdlBxeUdsajlr?oc=5" target="_blank">Canada's Suncor tops quarterly profit estimates as higher output offsets oil market turmoil - Reuters</a></td>
+        <tr class="headline-row" data-topic="Growth">
+            <td>2026-05-07</td>
+            <td>Growth</td>
+            <td>Business Insider Africa</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi1gFBVV95cUxQdTUzck9DWDFRc0tPX1lYbzZsRU9sSFZyeVdBeVR3bU45Qm1pMzRqR2xXc3FTYW1JZWVWckhCZU5rM1dyS0pLaUJNcGR0clJvVWlZNnVUb0JTU05LZ1g2R1dqbFpOWi1fNEp0cmhIdG44ZmFvdXNUYS1NYkZKUmVrUmp6ejYwTkV3X3M1VUtxOUpjWlEwZnFQUVFoRjFpckpReURvck1ZU05WTnIzMlYxRHQyWVpBdl9IQ1UxN3Q1UFZCdGRKLVRKVlJ1R0tJZUxNX3hjZDNR?oc=5" target="_blank">Meet the 5 economic superpowers projected to drive 50% of Africa's $3.6 trillion economy in 2026 - Business Insider Africa</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>AI</td>
-            <td>CNBC</td>
-            <td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTE1YeWtkWTRKSW5kM3N3djJEX3VtbHk2LXg0anRWOTl1VHQwTExMNnQxS1dnUnU1TmFTVUxYdDRWMXp0aFpEa1d5YVVnVTQwUmZIUDhqSUxuMG5fdDVjMlRfZUx4cEh3STZ1SFgwT1pMYkZTYknSAXhBVV95cUxObHp1c19zZFlKNTM5UTJvcDNjekNORUVqamRva0FOb0doYzlLUUVxR1BpWEQ4ZlZLNHk3Z3ZxSUxwS1ZCeGhrV2tWMkN3NHprTnkybDMtdkNaczFJeHlMQ3pmUzZUak9KVWpZSmFmSFpFTllkOGhVbl8?oc=5" target="_blank">Jim Cramer: Here's the list of AI winners to buy for 2026 and beyond - CNBC</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-07</td>
             <td>AI</td>
             <td>Seeking Alpha</td>
-            <td><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOdjQ4VkRJdkxXLTdacTdaVzBlWHF1X2RZVmVzY2dMUVIwS3FQY2NHT1M4UFF5MmhSQmJzSms5Z2xmQWp4NnVUM21SandDRGJZaVhrb2phRjZpclV1MTVXRjU2Sm9Nc0Vpd3QtdlZjUVlwaHFsdEdzMEN6cEpJYXVIRjZsSVhpWHRmbW4ySmVFZDlCQmpUMTZfcVhnNlY?oc=5" target="_blank">Micron: I’m Trimming My Position Despite The AI Gold Rush (NASDAQ:MU) - Seeking Alpha</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxQVWo5S0tJTGw0Tl9qb2h3ZkQtOU5QQU9pemZ6UUxXZEk2NkR5YUhUMUgwb3dmSnVNejV1YTFhR1ZoQ3pxZVhrajhfTzJwMndEYnV2UDN1cEFYcTVXQV9BV0ZDSGM0b0VGSjlZZVhZOWNOc3hEb0FCc3ZObDhOODU1WXREWU1JY1pWYlZvRWx1QlZlYkt3SnJMbkNJQ1lib1pfVVc1NWtaQktmbDYzTkE?oc=5" target="_blank">AEF: Profit From The AI Spending Binge With This Emerging Market Fund (NYSE:AEF) - Seeking Alpha</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation</td>
-            <td>Business Insider</td>
-            <td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNc3B6X0U4dzJINlQ3d0FqT2RMcGRoNWlqSG10SXU4WmNjWWFsdFJpeWRmdGw5RDlLUl9rcGtFUG9yMnpJcDdCNDVvN0EyUldRV05rZWZDakIyLTFKRWp0dERsNGsxN0ZSV1NNZHViX0hRSDMyNklGX2pDQnp6X3o5eDIxWnZHcjhua3M5MmVITnVubVRLdmFUOGVZbnFCMzBBTDZZMQ?oc=5" target="_blank">Fed rate hike is back on the table as markets fear sticky inflation - Business Insider</a></td>
+        <tr class="headline-row" data-topic="Private Credit">
+            <td>2026-05-07</td>
+            <td>Private Credit</td>
+            <td>Seeking Alpha</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxPUXl5NTA2ZkhFTWRHOERLcWZJQ0NiQUR2aTBHdThZeFd5NmtVYjBSXzY2QnhmaGVTeVhBT0FfYUhiWHBNampDa2xZWjFFM2lPZlpCTEVFZGotZExiaVh0QVAtbmptSjdOV1phU1lKbFJ2ajFDTVprZEc5VXc1Y1BKbjI0RkpHSHJaVkhoakpWdG04d1N6QlppaTVaUUJtcEJTQmNRZ1htaHNoeVdSWDBIMHU1ZldGd0xt?oc=5" target="_blank">BlackRock Asia private credit fund at test after China loan turns sour - report (BLK:NYSE) - Seeking Alpha</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
+        <tr class="headline-row" data-topic="Geopolitics; Energy; AI; Private Credit">
+            <td>2026-05-07</td>
+            <td>Geopolitics; Energy; AI; Private Credit</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi5wFBVV95cUxQZ0owa0Q1TU1oaFM3WXVVZ0UwQURFUjA3U0tTOFptcG9VcWp1OWRFbjZIWWdYVFJHWWVwSHNfRTZ6bHB1NUFtbHp2QmxQOW9LVzZfVm56YUppNkJOOVRZVzJGaU1ubG0wN0l0aW5TY1REYlhtS3RRXzd4M0lnV3RwNE54eE5ObmZEVTlKeUhOb25nSFF6SGd0b0lqRW9VZ2RGVkJzSzd6T3V6VDN0Q3p3LUF1dWM2VEYzc3g2YWpWa05PZWhsazhmU1NOamliRUNNZ3VSOTVLcjQ2Uy0zZllMZGdhTWZwY0k?oc=5" target="_blank">Wall Street bonuses seen flat to slightly positive in 2026 as Iran war and private credit turmoil hurt - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-07</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxQOHdnQTlhQktrRUYxTVRLaFppWmEySEVDT0tJSkh1ZjAxS2FDNzcxRWpKcFUwZG5RR0x2VjQ2eThEOXFwUzlFM0g2U0ZPUE5JM21mWGtuNk9WQjdrR2NkNWFPd2lDUEJMRkRtaWV2TWVaSjhTTUhoYUN3a1VLeldHMDFXZlI1UWFDeUMwcjljUjdWQWo0Qndj?oc=5" target="_blank">2 Outstanding AI Stocks to Buy and Hold for the Next Decade - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Energy; AI; Growth">
+            <td>2026-05-07</td>
+            <td>Energy; AI; Growth</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMigAFBVV95cUxOUXRKMFNtMXhqVW4zSUUyVFpxQ1I4V1hEczlkeVRpOXhHekctQVhfMlQzRUdWY1lKcEVIQy1QaEZlaFotcjE3SFlHSVUzXzdmd1lubkRoeWpFUUJlbmtFU01Pb1pWcWtWcjVGODA2bFZBN0ZfUnFxSjd5bWNBdFdIWtIBhgFBVV95cUxOZzNFTUdMbUR0TE1RSlQ4WnhUOUFJVUFXdzVOLUlKR1ZVRHpNVVBvVk1JU0tta1hXVVU3eFpibjlTTzZMc2xIaDdQOUE2YngzTHBleVJ3cUlPRjFydXFzMHREVjVVOXBuVUgzMEhxV0JBMmwtMl94UklZbV9majdPMEVYSU54QQ?oc=5" target="_blank">Jim Cramer says the AI boom has 'the power to keep the country's economy humming' - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy; AI">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; Energy; AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPb1ZZWVlWYlVTaXhlS2ZkTnQ0UUhrNGpVbTRVeHhMRGpkNmRSMTdySFdQWTZBT3VIa1d4VXRqZ3hXZklsX0V1MkxOSmN3LW9GUnV6UFFySXE5YnhXTmpiM3FQUTFlQ2ZmNkFvVG95ckZnX29oZVlRdnNxaElDWG1YeTlzczR1UkhxR1RXcWhqdzdQdDQx?oc=5" target="_blank">Oil prices gain on renewed US-Iran hostilities - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; AI">
+            <td>2026-05-07</td>
+            <td>Geopolitics; AI</td>
+            <td>MarketWatch</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxQS1ZGTHRIM2RBSG1hRzJweTRwU3JSd0UwSlE0YWRNSXpmRDR3UjNKRHhwOS1YdWJCN2VoMVJRTGhMeE5NSm1uOGJTMnB3cDFmQ2Qya3pieGNJcjJiZFRzejZuXzRhZ2tJUGNqSUZfalhDWFVqSl9xMHJCd2ZxT0Qzd1lEbTVfT1JCSnFadkFQMmY5cktzTTY4VFBGZDN2dzk3V3JTZHV1d1dScU9hVUptQTdTLVNYNjhoaW1tTm16R3dsbk1GTVRkZWh0bXBzekxmMUZ0WmNFV2ltS0w1NjdVNA?oc=5" target="_blank">This hedge-fund legend just warned investors not to chase stocks higher. Why he is investing in AI anyway. - MarketWatch</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-07</td>
+            <td>AI</td>
+            <td>Bloomberg.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxNdFN4VkI4WmR0UUVNNUIxN1JDWmxIcV94V1NsT09VVi1jNU9FUXdOYXdhSS1GZW4xX0hHTmtmSEFMaXgwRW5FMkhDWnhQQ2dCeldEZFVjendQVm5fV1JtZTFnLVdla1RPVEpGeXhRd1A0TnNLN0hva0xjMGRSYVp6NjNXTWFGWTFyaHY1b29QS2ZjM05FcDhIRTQwUFNVWWRQcEhFLWhnRVVaVXBZQlQ4YW54VQ?oc=5" target="_blank">BlackRock South Korea ETF Sees Record Exodus as AI Stocks Soar - Bloomberg.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-07</td>
+            <td>AI</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxOMm91VVBJU0dBS1BBVEJYYUFPaGJhQS1CbHBfazRpSG5WN0QtOE9rNDlJSFdHbGUyTl9hUmlKZTNQRDZZbTZsZXVoWmxnY2xvSU84eTJqMWx1ckw4aXJNT29XNUJPTTFfYURta0RSTTJhTTg0aUF6dTR1NUZmWThLcDdYVG80UFRidGVhdEZfS1h0RzFJMGoxbGxGWjFYVkpEZTJOQkdaWdIBrAFBVV95cUxOeFZ2QUxreEtoMFRLVC1nYnFVeTRaSTBVSUhteXI4VUpNdnhvX19UckNiLTBsc0FiTTJFUlg4MXAwazZKTU5XLW0yUFBXMWM1QnhZbGZLS203NzlfdFVpYXFBSmZHRkNGQ1NYdE1YTlBsaXJkMHBWdmN2NUFKanhsOHV4a3lhNDUxcXhXcUtnYVRrRjNLZGd0VS1kUW85SXVvU0VhTUYtdjdNd2Rp?oc=5" target="_blank">Paul Tudor Jones says AI bull market has 'another year or two to run' - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Energy</td>
+            <td>Bloomberg.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQOFZCYXpHdEt0eDduX2w4alFoV3gyNDRyQS1ZLTc0MDh0VmlDUi0tTjJKZ1hncElXMnNFaW9VQk1JTjRtdkpzd3NpYU1vamNXMDhCWTU2QkNTUG1JeFBZX2l0a0lpRTBhTkhXS3NUOGZTbTVFVk9mbUhVSndyb2x2VTNKSzJxNzR2Uk5yTks5LVBTejdiV2oxZ3FlZDFsV0s4NmlhN3RUNHoxZw?oc=5" target="_blank">Watch Oil Prices Are Moving Like Crazy, Citi's Layton Says - Bloomberg.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-07</td>
+            <td>AI</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxQRjE4YVBFVmVnRWZOck91UGtsenVtOHFsaGFYcFIzMTFlZVVpMXVfNkpHRmhQSjZxQ2x0UGxuZlR4dFJZNnVNTUZEZ3UyclcwRnVfUWNOQXVDZUtmbThFbk9TcGluNWV6LWh4TWJaaXFDTWgzbl9lclZ4Y2h2bnBzSjl3WQ?oc=5" target="_blank">Navigating the AI-led stock market - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; Energy</td>
+            <td>Investing.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQWV9ZR0tzdzNHem1rUjVlZUE2S2QxcVhadi1wbmFiYUxPRlozSVZQNHRfdlJNeElZZVBiQ1FNcjlFdlRVZzVvY01Ja0Jqc21yOUtnSmZ2ODVKeWlGay1QVWsyTEVpQXlvcHJoSWxab2dMRnRBQktBbU5WWTNDSXowMi0tRlo2TVJ1WE8zaEZ6RFQ0YU9VZE01aC1zQkRiU3dDV19wWVpXa19RSHp0aU10YTF3NFhCeXRvX0FSVl9n?oc=5" target="_blank">Iran war peace deal hopes; oil prices waver around $100 - what’s moving markets - Investing.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Energy</td>
+            <td>BNN Bloomberg</td>
+            <td><a href="https://news.google.com/rss/articles/CBMitwFBVV95cUxQUEVwU1pjeVRxWUNFem53eTd5dFBKUE16TFhZT3VUN0N3Y3ZtcmhucUhUSUdDbjltX01qVUUzU2JZZHNwVFRRV0EzMFNzbUZWZUtKZEFwNmREcHp5LUVEWHdUU24zNXhqbkV1NDA0aDBMdVlkZEs0XzBwMk1FSmRGM25ERWtvLUpqdE9zS19qWWFFVHdEcVQ3SDhnMWxFc0V5T3ZmTnpHNXkzX2dvS1d4VF9Ucm81OHM?oc=5" target="_blank">U.S. stocks fall from their records as oil prices yo-yo - BNN Bloomberg</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Geopolitics; Energy</td>
+            <td>Investing.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOV3ZCaVJWaFFvNXAwUHNJNEJDRmtTRnBKUDRqeExybGp4c25vcUw0aEVGVlFJU1NncXhObjZJS1RXY2xpZ2JNbHFpcXd0S0c0OUpnR1JBQUpmMWFMLUFrQnZBeFVhY00tUWR5QXQ5RHN5cHFLbUQ3TnZvQ2xaM0kwYTBaOWRSV0FQaC1OMXJReE1pNzl5T1NXMmZaVF9fdG8?oc=5" target="_blank">Oil Prices Hold Near $100 as Traders Reprice Iran Risk - Investing.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Energy; AI">
+            <td>2026-05-07</td>
+            <td>Energy; AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNSjgybFlUbGtvQkkxNUJZeHVsd3ZYMzN5MW9vLWk2TUZtZ1FRTUFsOXZhUEVEZnVuNG00THMzaTRtQWY5UENKb3F0dkc0ODdDQlJCSmhqWUpNMmhIaHBpV0poaVpYWXBHZ1ZwZUZvU2djWm5tYU1nNFJSQ1NFR2t5MFEyRy0?oc=5" target="_blank">Brent tops $100 on renewed Gulf clashes as AI drives Asia stocks to weekly rise - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Energy">
+            <td>2026-05-07</td>
+            <td>Energy</td>
+            <td>WSJ</td>
+            <td><a href="https://news.google.com/rss/articles/CBMixwFBVV95cUxPQS1zRDFfMWRLenJBY2hWZ3ZzUnRZZDlwWkRXM3U0d05rcFNDUnRNTlZkNndoTHFYZE81NHBNZzBfT1JUSzVfdTkyYmJlM3BjRUY4NVQ2cG1kUm5BZ0t0T2dPSjhFRmIwcHFEZXQzRnBfMnEtQl95bWU3UnliZEZqUU5tZHBZd2Y3NWRWaENNYkQtNHhkSTRDYjJaNjZhMkV5bjY4V2ppS090YWJtR2w1cFl6OG1NXzBseHJCZkwtNV9NSDAwcG5n?oc=5" target="_blank">Shell CEO on Oil Market: ‘Volatility Has Created Opportunities’ - WSJ</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; Energy; AI">
+            <td>2026-05-07</td>
             <td>Geopolitics; Energy; AI</td>
-            <td>Reuters</td>
-            <td><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxQR0J6Zk84cEp1ZDlmd3pzSXFMVEpwS1p1TVJBNWE3WmN1NmNLU2x5OE8wanBkV3dsRWtXUUl1US1VcHF0SzB1OGpUaWdjSHEwR2ZQWTVjOXlVM2tfNzNXbjlDS1FnUTk5NWNOMks0SWFhTDhHd2xhR2p2X0RZZG9jUEpxVE8zYUdSZWNKOUJfMUlfSDFSTjQ2TWtITE1sdVZNNTdNdFVyX25uQnNYSmk4ckUwUWxZZjFl?oc=5" target="_blank">Gold gains after hitting more than one-month low, Middle East risks linger - Reuters</a></td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxQaWJvbFlvY1A3eVBsYlByTlN2dFpPb0lsaVhFLWdpOGZ0MUFZZDdLaTE3eVh3NTlxMGw5U0h6MnZsV1BFMzVnN3BMdUswSUpmTDV2dW5PUFFzVk5FcW1ZLTRlNVZ2aFBKRnhhcGdDaDNpaXpEOVZwQmVOVk55MVBudWVrOVE0emEweTdJUXUycVBacVkweExhT2tLRWdtSDlSMmc?oc=5" target="_blank">Stocks pull back, oil choppy as US-Iran peace deal remains in flux - Yahoo Finance</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Other</td>
-            <td>Reuters</td>
-            <td><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxOODFHUXNpSDBWMS13cVFuZzRGWnBBVjU2N0k2T2gyLUhFd1dSUHlwYWNkTnBWMkRUaDRSS1RiTkJFT3lMMkRfTWozNVJKcXVLcnJuNXZiamd0SURBdUdlTFJHcGJfWEZvSjBOdVJZOTZaeldHeG1IYnU5WjNWbXpiZVJMWmh2Wmk3YzZHaDBpb0o0VUk5emU1MA?oc=5" target="_blank">All eyes on job market as Fed's rate-cut window narrows - Reuters</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Other</td>
+        <tr class="headline-row" data-topic="Geopolitics; Growth">
+            <td>2026-05-07</td>
+            <td>Geopolitics; Growth</td>
             <td>Business Insider</td>
-            <td><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNd1FkM3pSYWdQenJWQVk2R3dkZ09IVjBUS1FTb1ROYS1KYjBKNF85R1R6VE9aN2IxZ1JFQVFsLUI4SWJBWnBPOXA0S1BjRzQwOGNiNmpkS3FRTkVKMXFFVlp0a0FnajR0anRiOHNzakJQcWcweTE1dlF1amRPMWhnM3pLUkRHcDBjX1c5aDBBOXJxXzBzRHc4N2w2SE1GeGM?oc=5" target="_blank">US bond yields have crept above a dangerous level that could signal weakness for stocks - Business Insider</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPckJQVjdMYXkySnJyLXhKd2NqWm5mejBTUzVJcVNPOTRNdXVsMG9JbURfbUVRNEMtNGpkTjY1ZFNFY0c4amY5WjRvQmxsTzZsSTRFalJNWGE5aWxLeDMwemRYZFNRYVBiczYwN2JKMUwzWnBFVmYxME5ETWFFY0xHSTcwRTJaY3VSMUNQZDduRXFRN2k5QnI4Uw?oc=5" target="_blank">Why a peace deal with Iran won't save the economy from energy-market chaos this summer - Business Insider</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
+        <tr class="headline-row" data-topic="Geopolitics; Energy">
+            <td>2026-05-07</td>
+            <td>Geopolitics; Energy</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi3gFBVV95cUxOZ1NvbTlocks5a09OV1ZQOWtGY1JrbVgxZmxJSjQ5VnBQVWVQWTNVNnFvb1d6ZGdOSXNqaXAyT3FTQlZGMDNrNWxpSFh4NV9WOWNDUDhEamtXZk15UUFtMEppd1JyS2tqOGN3ZWw0R3A0YTY5SUNYWGRWTk9JOGs4SUMyeUNyMmNrYjJYaFRLSEgwS0owYW1VdFZsZlBuSk14NFVMY2x0MVA5bkdNdE9GZTRNeVF2UlZPYTRjT0tFUHkwOFRYQnVmcVZkZkNDSFEtSzJRd09SWVIyVnVxWXc?oc=5" target="_blank">Exclusive: Oil-price bets ahead of Iran war news totalled $7 billion, reporting shows - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-07</td>
+            <td>Inflation; Energy</td>
+            <td>Barron's</td>
+            <td><a href="https://news.google.com/rss/articles/CBMikAFBVV95cUxNNFZkVEFOajc3bEx5VEJ1NjdrbTZEUGVmTkdRUGItYzF3VGlwTG41MUtSNlVmNFVQalBuWHVpYmlNdjliNXNqbkEzSTNzb29yRXFDVElyRlJ2Z0J1aXFfZDBER3Fma2ZBWjl3SFAxekhlM1VkbmJRaW13SEpxbWpxbTR2NmRfTnJlYUxpRlp3X08?oc=5" target="_blank">Markets Can’t Ignore Higher Oil Prices Forever - Barron's</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; Energy; AI">
+            <td>2026-05-07</td>
+            <td>Geopolitics; Energy; AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPUmVaTHNDN3E4WkpaeW5NeWxBSk1sNmdWRHYzNE1ON0dnbGJYVmlndVUxT0ItYW53RmRlRG9kdlV5ejBxemYtV0k3THllWFNvMlN5MnVDbXhPeGJOaTZHUUF5b0J5LWtxWk80SmtKUk1DdW1ZVkUxVENnUTVHNmhPbHRoUVp2djZ1clcyYTlsbHBTQm1QbUVXWjFGOC1PaXN6cjRkemNn?oc=5" target="_blank">Markets Stumble As US Military Reportedly Attacks an Iranian Oil Tanker in the Strait of Hormuz - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; AI</td>
+            <td>BNN Bloomberg</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiuwFBVV95cUxQZ1JTQ1JYN1lxOUxfaUFtMTBSVUN4UkdtSDd3VWlMdnAzcE94MWNSb2tfOUVRZkNpMjFsZDhGVkdjbE9VLWgzUnVxREhPdFVTaVFrNXhpcEE1czZWR2xuRk9CUWwwYWhlUm11TENFaUFZcVRudnU5UmJ0REZkVlpoa19YRW8xdndxN3BTeGdwdWEweTlyM1hBLVl2NFZqcVdBMmN4NnNSQ1MwV2ZndGFib3NFX3FvM1lPZ3lj?oc=5" target="_blank">Is now a good time to put more money into AI stocks? - BNN Bloomberg</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPdEVkVUNSeFVFYnNZaVF5Q2FkV05CTl9DT1g2Y1lGY3F6Zzluc3pQaHRjUkp4d1F1QU0zV0tGV29SZFU0QjRIcEx1Qk5JRVhzWDZIX2lMQTc3TFZKN1p1eDl1YWNKb0xwRmtZeFVuanRzTDVJZ0RfelZuTVpXRDJvdHBuSUo5S0dRQnRWTGRQZ0FaTXJkYjVQTG1VX3ltQnhzaUE?oc=5" target="_blank">Is the Market Missing the Point on Salesforce Inc (CRM)’s AI Positioning? - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxQZmhiODVKaGktMWx6SlBTMnNZSDhpQTRLb1lNWEhFQ1hLYURKWE5lM21qd0VQRTRaVGZPZjY2enBWSVE3TDVQcW14QzNjbUE1U3pWM1hfc1p1Qk9jVzV5bndTeFdRUFdfZUJFLXFZcER0dnVEMWhoWXJSb3hxdEE1ZzRZcWlKSURtUjYyeTJkek0wa1k5YXZ4ZTFLdnBFMllXbFB1TnFR?oc=5" target="_blank">This Super Artificial Intelligence (AI) Stock Has Soared by More Than 300%. Here's Proof That It Is Headed Even Higher. - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; Energy">
+            <td>2026-05-06</td>
+            <td>Geopolitics; Energy</td>
+            <td>Seeking Alpha</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPRERvaXJBb2t1WTItbThCM0lHRDdYZmcxaERRbDVqbUlTTmtab3c5U1NIZ3k5cEtiamhkSDJtMVM1OFVWaVFoeGhEbmVjTHFESU9ORmZZU1RCVC1vNzRfbVljTW9tVmxBaTN1S2lSTzJJZWVuTFBTbEJxZm44QlRSMzM4UG10VDh1elZqbTNRV3VfbEg4RUxLdkdESW1NM3hIeGFOUTdB?oc=5" target="_blank">Correction Warning: Prepare For A Sharp Market Pullback In 2026 (NYSEARCA:SPY) - Seeking Alpha</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxNUktILWdmc0lDNy1wdEMyT0F4cEdlTGNrdFZGQXNPYWJUZkNIR0NKaUVsd1hfMmNPb3cxTXZlUEtwNlg0c28wTUd4T2NxWlFOZzQybndNRTRBZ3ViYWNtRFo5YTZTV3RfU0thVUhRZDZCRDdPME1xWHlNNEExQTJZRktwZUd5ckw5bVp6NU1pRkFXY09nOXNuT3VxVDVEQW5yRlg4OEYtMGVvYUJ1dWlXNm1PZHdKM2RpY2llTVZJUTNBSlE0d2stdmtWVXlQMWU3ZUphMEQ3Q20xZy1kSWduZw?oc=5" target="_blank">Micron tops $700 billion market cap, stock extends rally amid AI-driven memory demand - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI; Private Credit">
+            <td>2026-05-06</td>
+            <td>AI; Private Credit</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipgFBVV95cUxPYjMxeWhpaExfcU5HM2ZPNU9lQ2tpZzBteGtueThLSmtqdmVNOVRaMThuSzRyTmkyTjJrZ0pYTXJrMXFWcGVnREJ3V1JMWV9wRWZDampMWDljX3d1ejZodERWZTFkQjBhcVplcHJqekhROEdkbldrZjBDckhQa0xNMlNoX0dIaGk2cEJrd2ZzVmdwaDVHS3pLd2N1ZlJBRTJOYmxYbTR3?oc=5" target="_blank">Pathwix AI Redefines Financial Clarity: Using Personal Pathfiles to Navigate Budgeting and Stock Market Entry - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Labor Market; Growth">
+            <td>2026-05-06</td>
+            <td>Labor Market; Growth</td>
+            <td>Morningstar</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNbzZRa3dmTXo5MS1od2tiZ29jbTNfemt3ZDVUYVhzWENkQUx5MUJWUXJwclVYbmFOTGdrajJyMGhaZ0kzNFJ3Mks2LTJ4RnE5Vkxsel90UlgyUlc5VVRqR3N2cTVFNVZwMTJCTnRzdVlXNkhwZXFKbUlhV2pBRGpiM1pzamhyMC1PNmJzVWtWYUhkVHJSaE9HNTNPVEpWalBjeThDZQ?oc=5" target="_blank">April Jobs Report Seen Showing a Continued Low-Hire, Low-Fire Economy - Morningstar</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; AI; Private Credit">
+            <td>2026-05-06</td>
+            <td>Geopolitics; AI; Private Credit</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilwFBVV95cUxPM0J1N1hkTTl3VENOSEpuejRlWWRHcklOaEdYOWdjZTdFX2ltLUhkOGNzLWRLSEJRZXF2M2hBMmRObDJyTWlVS001OEMxSVkxT01rVFdSNWVvaHVxc1pVeXhrYnlWZ2ZlMWFIckRQei1vNjhMN0tIMF9iRWdhYV9SV0FXT2pOMDBucS1WWnNVMmZKYjVKN2dn0gGcAUFVX3lxTE9qMVdEb2VYOXQzN2k0UUVxYnBCYkN6VHhCZDkzZkgtSko3YnNOd1oyaHpuZ3d4NEJaYmZuU1V1Q2IzUjZLUzZ4Z1drQ21Oc2N5V2ZsZ3RvVEhjbDRBWDhKWGI2eHNvMmYxc3NVUFNqVGNwdndMcGhESDNyT2Z4SGJLQjlMVHpzVVk4aERTOTA3bk8yVEVuaDNDRC1Heg?oc=5" target="_blank">Private credit’s $2 trillion boom raises global stability fears, watchdog warns - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Private Credit">
+            <td>2026-05-06</td>
+            <td>Private Credit</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMioAFBVV95cUxOVlVwZFlfNmIzckJmMHVZdmNGa0l4QUpTR19PMmVwYkJxN3Z3cWFWUFM4akFHVFcyajZ3VTNGTHU0eXhkTFNDbndNVTNPeGJndVNPMGRkelhpbEV5M0FPbkpOQ0l6MjhTSUNsc1hLb2Z6bHpINlNmaHp3UTV4NXZHbGluanBzaDVaT0hIOUs3OWZBNDRlMllTZ2hORUNHYm0y?oc=5" target="_blank">Powell: Private credit stress is 'not a systemic event' - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Private Credit">
+            <td>2026-05-06</td>
+            <td>Private Credit</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxNeFhOWTBCbVZrTmExbTZGQ1FuNW1aRndoLUxQUXFENmhjc0psYTEwOWg2QnhmRHBWNUI3VkNVZHlnZGRWVkdmY0Nrcm8ySjVGalUzNXZKbUt2NzF5WGl6MXMwY1kzcFp6RmtIUHQ5ZnFZWndIcl9MSEpsUk11cUUxU0VjXzhud00weFFIZG5wVEZrVGxBYzZxMmU1S2ZOTC1JMFQ4RklEZTUxb0dYSkZpZndKUDd1aVBLcU1oYVFLWVFUM1l1azc2aVN3?oc=5" target="_blank">Watchdog flags risks in banks' growing private credit ties - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Growth">
+            <td>2026-05-06</td>
+            <td>Growth</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNSEw3ZVRTSmNNSFBTSnJmRkdoT2JaVGJoV0t6eWQ1WG1XdmZYRWwyYURuU3RkU3NHaWo2NWxxLXp4N1hfTFV2T2VzNUNOVnljd2NTa0c3azE3aV9kcHJUbmRaUURUdGk4aHRPc2k1YkRWTHV4VDJwVi1WUDMzZ1ZCZXFJNjZDSHBtZ2xQRnpDcHd4ajRVZmpsMU5jaE5LSEVZNUd4YmlnUzk4LXJ5OEE?oc=5" target="_blank">Indonesia's first-quarter economic growth is fastest in over three years - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI; Growth">
+            <td>2026-05-06</td>
+            <td>AI; Growth</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxNdTlYX2NtdXp3SEp0VHhZUHZ0b0JfejU5YTBkSS1yZ1NENWFmTUNVMHlqVFU1OWVnWkR2S3lVQ1NDNjJjRC0wUE9NRXA5MThVSFZWYm9RUEw2OWR3RGlyQjdQLU5Qd05uVmNlMjFlZHlvN0xYOWJ1Znp3UlZHVnlvZVk4QzBPc1VSQ2xmNFg2dm5wMWplTGdmNHkwZF8?oc=5" target="_blank">The Best AI Stocks for Growth Investors to Buy in 2026 - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxQeWlDcW4tMU92ZzhBeEljN09NNndKV2Z5ZDBHWXEtZTFYejZaU2VtRTdEMFZGMUFlY1N5RC1fb1ZVV2FNSWJoZGtJVlJHdl9EY253eWxFMXBIUFM5OFYtLWxnRDRWMnU0Yk1ZbVozWjVYZXcxVjcwOVdDWjI5bTFscVpQMmRqZVo1SDAwRjQ5UGd0Vjg?oc=5" target="_blank">Stock Market Today, May 6: Super Micro Computer Surges After Earnings Beat and Strong AI Data Center Demand - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxOXzNJVHdma0Q5M3RQeXdvTTJ3eUJaOEpUUnhVLVRtcGJmOTgyWlZ3dGV2TE0zOWxXWkFyMDd6OXhxQWVtQ0VGY3k4dmd3VXlPODBBLXUyRWk4N19aZ2hUemhhR29FM2pRNU5SNlRmclI1cm1NSE93MExXRDZlMWxiSl8zVS13MjZ3VkxNUEZQT2RJZnNvQnc?oc=5" target="_blank">The Best AI Stocks Wall Street Is Sleeping On in 2026 - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-06</td>
+            <td>Inflation; Energy</td>
+            <td>AP News</td>
+            <td><a href="https://news.google.com/rss/articles/CBMitAFBVV95cUxPVGNwRG9XWmFLOVAzTkQ4NlJhdXN0YUhZdnVHMXlncmQtbG5qa2NJaDRZOXFiOC1VR0xGQkFJVzhVanB5ZHRJdnRJd1Yzb0Q4NDkydmNEY3VfN3hNRVhKNVVaSDJyX2p2bExudkpwd2ZISkVxdnNYd0lDSGhQU3J3Ql9IZ0ZxMm5SbVJjcmN3MC1RZ0pET3N2V1ZONF9SLTJ1d1ZxejBXckpMNFpvU0VyUy1OaDM?oc=5" target="_blank">Oil prices sank, and stock markets burst higher worldwide - AP News</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-06</td>
+            <td>Inflation</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNeHNXakxiZ2ZpSUhIcnFRTmM3d1N5LUtsbTJoZkF0WDU0Vno1THlmVVRGVjNlR0JTazJqVVY1bE5qenZsWkR0MmVyZlhLd3NxQW12U0ZIVFh0WTFhUEdaZmtXckxaS1htbnlOcDZVNkFMZlJxaHZMeHFydGJMZThqX2tWQk5Zbmo4ank3cWRrMHRyVVZkUFQ5NE9IWm1RZnpqUXFNcg?oc=5" target="_blank">IAU Returned 42% in a Year of Sticky Inflation. Here’s Why Allocators Are Reconsidering Gold - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; AI; Growth">
+            <td>2026-05-06</td>
+            <td>Geopolitics; AI; Growth</td>
+            <td>Seeking Alpha</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxPRkN2VXgtM1FPZHY4QUVGYXg0Zkl1a2dSN3FUTnM0SDI4UzBCSFIzVTdNd3l0eExpMGlyQl9SODAwLWU1cGFVUnUxbEZ6QmdJWEhZUUc0dHd3WUMta3BtQ0dkd2Zhc0lfUEZuYTBZMlpDV1ZnbUhDUGtLaUFEek82amdSaVoyU3B2clpkUFhBbktNbmZqZ1hWb3ZTM2JzVmR5cHdLNTNUdw?oc=5" target="_blank">Best 5 AI Stocks With Average Forward EPS Growth Of 200% - Seeking Alpha</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy">
+            <td>2026-05-06</td>
+            <td>Inflation; Geopolitics; Energy</td>
+            <td>Yahoo Finance UK</td>
+            <td><a href="https://news.google.com/rss/articles/CBMigwFBVV95cUxONWxaWGE2QkhIWExxN2ZIUkh1Qnhyb3U3YzNlczBaSVlfV3JveEZkNTZKazJlMFBKdjJFeWxteVNBcUVsQzJqb3R5SlZVeVNJaUxOaVA2c2NjQXU3RURCN3c1QlBjNkdYb3BDZDZWYUVseVlWOFpIeXZLaFVsU3JZNVhtUQ?oc=5" target="_blank">Oil prices fall as Trump pauses Project Freedom to seek final peace deal with Iran - Yahoo Finance UK</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; Geopolitics; AI</td>
+            <td>Investing.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxNakM3OUhsYzJGcC03VnNIdl9VUXhzSVVVRlg0Y0xlSGhwcFlTaGhDcmRTN0F5ekE5VkI1d1dTT2FjRVpmT2wxWmxGTkgtR3l4Q1JremtUWU8xVVFZSnVFYXNVRG05YlhWNy1uYVBFOGFDY3BzcDc3ZHk5ckp4Mm0zSXFKME5kTFBJbmVhbUZMUDlkNDk1Tmw2X2tPUlBuR0RCbTFuSDI5aXlXaHJwcVE?oc=5" target="_blank">Fed’s Goolsbee warns productivity gains may fuel inflation - Investing.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-06</td>
+            <td>Inflation</td>
+            <td>Investing.com</td>
+            <td><a href="https://news.google.com/rss/articles/CBMivgFBVV95cUxQYTFUeFBEa1UyMGtWUXByLW9XbzlwSU00NlpFbllRVElBNGtCRGFfZldQeWdoVXYwYWhwMkdCdEZQMXBtbnhsWVp0TVFfWWJYRXJkSlFpTXlpLUFCVzlRS3A5UWZlV0N2UUszOEdZZFE1T0VISTNXVWVHZzR4cUYxaVBxTnlqb2h4VE9vazJxX2JySjYtUnVQZUxmSXI3SzROQkxETzBYVmZTTEZjZ1lxUlZIZnV0ZWxSTS1BR3BB?oc=5" target="_blank">National Bank of Poland holds rates at 3.75%, cites inflation risks - Investing.com</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; Energy; AI</td>
+            <td>The Guardian</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi4AFBVV95cUxOeHJ5ZkhRVXEyUm5sWTBTQk5kbkE4bXQ2eTNjUndlcEpwU3lBcjZLYUJqWmF2NkFpWC1hYmRaMjFHc005SkZuUWpIQ1RVQWR0bmRNYjk1OXhfZVg0eWx0cGVxaVlaVUFGLWRVS2xUZUpTRWhSMTFMN2pNalZHVGlPMnZPejdpX3NZbklxd2FubGk3aFdMOE9jeHlPS3lxSzc1SVFVbkR3aHFnRU9RS3o1R0NiVXdTSWh2VTVXOVhuX0x3R08yeEpFel9YVWtMTmRNSFVRLXZDV19oaHpWUmNmeQ?oc=5" target="_blank">Oil and gas prices fall sharply, driven by hopes of strait of Hormuz reopening – as it happened - The Guardian</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMirAFBVV95cUxNQ3V5RlZkMXFBanpJNkJ0YVlKRkxYamlXOF9kbjl4RDJtZjctOTd2cHZucnI4ckdCbXZ3LUhCQjdnckU4SVZwVU9jeE54Zzk0dy03RGlBMFFLZVRreHdBemhuOFpnY2dIWVVCdTZva3JFWHViN2dlclF1TnYwSWZSMlp4RjFWZHZKa1cxanM2SG5xVHZzN0VxNG5sQUF0UENxbERpdGpKbXFzakVn?oc=5" target="_blank">S&P 500 and Nasdaq notch records; AMD results spark AI stock rally - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiqAFBVV95cUxPQVdWX2h4TGFMclNZQVNRTEZJRG9ZcU1VMEdxZ0VhaEQxbThmOHdrNzM3Z3FId3l1UHVTSGNpLXhhT2lyTzNGRXRpQ1NodXZnOE14Vm9xX044TkhLYzQzak9Tbk1qU0hhRk1RTXBnU2hVdENDaWhJYklVVG5lZV9UOGQ1VW9sNDMwQ29tU1NHSXVxU1JCX3hkaWZLU0t5Rk90RnZRNXIwdTE?oc=5" target="_blank">Samsung Electronics' market cap surpasses $1 trln after US AI chip stocks surge - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Energy; AI">
+            <td>2026-05-06</td>
+            <td>Energy; AI</td>
+            <td>Financial Times</td>
+            <td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxPYjZWbHFSMFU2RE56VzlDV3lrWk9HRkZMWFkxMG00YUZDeUNSSlFKYlNGaXg2elpOejU3TXlEZ3VyQjBfNzM0QTFscFJXWXR5T0ZmQUN6SEdtSWxZV3V1eEZyRko3WDlsaEN2cW5ZWVJERElqOFVMd1p6NUFqRk04OFhFYVk?oc=5" target="_blank">Samsung Electronics hits $1tn value on AI euphoria - Financial Times</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>MarketWatch</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxQN3d1X0I5b0h2clFUc1k1U2RESG4xNnd0UDBORzBEaDlZVmtxSUdNWFY5WFlOS2VXTmROU2FwamRzRUZhaW1tbmk3dk5abzJMeTBMSDRDUFNrQ05qR184YXZ3aE5GQWQzQ044ZEFsZWs4UHVaUm9FeWdjQm80QXV5ZG9ldllOMWtLQUNicW5jcVNFWmhublBDNWZBVFZZd1U?oc=5" target="_blank">Why the U.K. may be about to rattle bond markets again - MarketWatch</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-06</td>
+            <td>Inflation</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiwgFBVV95cUxOanpTYVRfYjNtTmVpT21vMmhvdmdtRzlPcEx1SF9DZV9rVUpLVFVLbFVQV1JzcUlwd21fTE1WUWFMUDd6VlNRREhwNVdjVEFqeHRNamxUYUFqVkJHSUowYU9EcmhoZkNveHAzTG05cE0yOW12X1N5bGMzOXBXeE8tZ3htRXhLSFEzcGt6a0kwS2lsVEJ5Qk9VMXZiaGx5UEVWTnJjclRHR1QtSUJSQW8zb1d6ZVZyMlFXUHliNVd2QUpqdw?oc=5" target="_blank">Argentina should approach markets with lower interest rates, official says - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Labor Market; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; Labor Market; AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi8wFBVV95cUxPN1JmSlBUTlRvMDBJbjY0bDNoMVBWaG15VVp0dHFOSUdZTmtGNV9wMGRXajNTN2tGZ2hIeFEwWXJ1US0ydlBaRDZaY2k1TWlCdktfY0FiQ2h2SkJzSHZWUmthS3pnYUxlM19NeHh5M2FaS1RvcldFai12U2MteG5aRllweXN0WEV0S1FqVlVBYy0xZWliemE3d1Jrdm5qQm13bXpSbDVxV2Y4UnZZemtjQTVLVkduMEpXXzVYVEQ0bzcwaTR5MjJlaklQRWMxVEZQNXU5M1k2V3BvRFA2UW5GTmp2M1Z5UW1KcTdDR19KUmVORXM?oc=5" target="_blank">St Louis Fed's Musalem more worried about inflation than jobs now, sees holding rates for 'some time' - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxPdktpREljZk9oVGdONWRCbUlHTEtXcXdvRzhkOEJDRXZCN29uTVp4ZG80b0ZQeUtKY21MckFMbWZxZG5Tc1lLM2FKc1BPV0hjbldIQWs3cmQ2WHdDblNVYl9yWnpZMmlqdUUtRGdwWk1DM1VQUGNpaVRrQk85dEI0bDdrVXB5SUhBM2FubmREcW9qNkxueDQzcmZ4aUg?oc=5" target="_blank">5 Dividend Stocks to Watch as Markets Swing on Inflation Fears - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; AI">
+            <td>2026-05-06</td>
             <td>Inflation; AI</td>
             <td>Reuters</td>
-            <td><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQelhHNFY5OF9TaXVXbkJFcUFaaFl3WGlUMFNObnZFX2NDbzJlM1o1LXVuSkxPdTdQN29IWHk1V0lzRVNfa0ZlZmF0dkFxaDB1NlhvUENISU5VLTVWSkhaUEZTWloyVTdLeF9iSTVyb2pXbVpRYlhjQ19qZjQ4TUFXd21JNkdseElscnpXM0N6T2xHNjdQTkd1QzF4WDJuVTNmbmlaSG1faDZkUQ?oc=5" target="_blank">South Korea inflation near two-year high, raising likelihood of rate hikes - Reuters</a></td>
+            <td><a href="https://news.google.com/rss/articles/CBMivwFBVV95cUxQRXkzX2FOQS1WREhHOG5FdzdEODJtdEtwUmV0eFRxVklGUHA1T18xTFAzbUZCbEY0Q3Y4MGFFNFpodEFVeGY4N1JGQmRuczBsTldtajl5cWhvd1lteFQzUVhvSnNOLVpncFFUbllDcHVCX3I1eG9YWjVteS1RT3o3eDdlTEtoTF9wNUdLVVBCVlVOTm1XRFJuT2ZHRHBITTRaTXQyZFdJYXc0U3JDR1JISWpjaDB0d0JqYldkNF9OMA?oc=5" target="_blank">Fed's Goolsbee says rising productivity could restrain inflation or boost it - Reuters</a></td>
         </tr>
         
-        <tr>
+        <tr class="headline-row" data-topic="Energy">
+            <td>2026-05-06</td>
+            <td>Energy</td>
+            <td>MarketWatch</td>
+            <td><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQOHlJaGVpUllGS0tzYlNodVcyQlg5OGQzVkhuMkhYRWprMHYyNWRRRzNfT0p1dGx1WEpZREt4SndLRnhIbHVibVFLLU91OGowMTRTcWI1TUhqbFl2N0RvQmR2NDFnV2J5OUxVNEk2STF1YmE5OXowSWxzaUljblpyZ21wMVc4aGN3TnpQY0dFQ3p3N19YX0JtRUthVXRvTVhUVTJEaUJ6QjlRV3h3OWhr?oc=5" target="_blank">Traders point to suspicious activity in the oil market on Wednesday - MarketWatch</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy">
+            <td>2026-05-06</td>
+            <td>Inflation; Geopolitics; Energy</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNNUNHVHYzTG5BZjJNc2xmU3pPVmZJOFliVEpoSEo4YVNsYXllNkR3aWdmVEc0Mm9qUUU1WlpYTmJBOGg3SUpKN1p2Y0JpVUJFMXcxbHc5WUtGOWw5T2ZEa3JqLVFfdUY1NFJaUk9kYUthYzVMMFN4VGFYY3VXQkNGSzJhWUhTX3JyeF94cHZudzZXSl84b0HSAZsBQVVfeXFMTVFjSmNxd2xPVHpyRm1MWm5kNkZLNkxIcDJKNEthZU5jYUFtSkNGTlFDdW1kNHZJZWh4UTgwbjhicGxETW1wd0tHb213cEF2WDFOdW9kb3ZrZFB1VV9ZWDRudml5bE5aZ1NETC0tSUVLa1l3S29LM1B4VDFOSEVrUHZuaTUwMm80RmZqMTJSMk1UU09OQWdmNmF4eTQ?oc=5" target="_blank">Oil prices fall more than 7% as U.S. and Iran appear close to deal to end war - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
+            <td>2026-05-06</td>
+            <td>AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxOVjV4RFJNS2JKcjFuSWVlRmJORkdzMHVNR1NpQUVURlpsbjlWUk1QcVA2eDlXVUc5LWlRdHFuYWctSnRQVnJfZVVqdmlHMGFuc0dtVnd2TUo5bEMxYk0wNWltQXFFRnFkb2NwYlN2ZVV5NHhnMnJvVjRDT0tzS0Y4NHFoMkxSU21oZUJHY1A2Ul9uQVU5ZEtmelZ4YkFYQkU?oc=5" target="_blank">‘Sometimes, we see bubbles’: Why Michael Burry is betting against AI and doubling down on these stocks instead - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; Energy">
+            <td>2026-05-06</td>
+            <td>Geopolitics; Energy</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMie0FVX3lxTFBMUXNraHJ0ejVzeWFieVhqRWRmZE5VQU55TC1PaGdKeHlrNFVOY0k3NE9hRUE1dWlBVkhTN045TVZHYWxOZnFWWDhRdzQ0MnBFZFhnNEJtel9aZ2J3R2FOalAyeFUyMXh5bVZoYzUxRmFhdHBuSEtWMEktcw?oc=5" target="_blank">Stocks hit records on tech earnings, oil slide from prospect of Iran deal - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-06</td>
+            <td>Inflation; Energy</td>
+            <td>BNN Bloomberg</td>
+            <td><a href="https://news.google.com/rss/articles/CBMi3AFBVV95cUxNdVlNYjloZ0ZfVHFETGliYlJGZW5CdjhEYXFzRE1CVVlwT3B3LXZDVXltMl9GZlJ5ajEzSl9XSTdJTXlQT1hxUjQtSXRBUExnYzhiMnVSMVdwa2FHN3lSWl9MYWFWbnhCOWUwbVQxYTlxOW9xNTRuWERRUHQ3LVF4aV9MWHR3WTNFMUVMRkFDbFp0aVZQX2cwcllZQ3JnUWlpTUF4b0Z3SVBDd2FQUWdCSUZ1dklIOWM2SldyNjduM0hGdnFCV3Z5ZUF3bk1vZ21UOUdockViWEpxSTQw?oc=5" target="_blank">Oil prices fall and stocks rise on hopes for a deal to allow crude to flow from the Persian Gulf - BNN Bloomberg</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; Energy; AI</td>
+            <td>AP News</td>
+            <td><a href="https://news.google.com/rss/articles/CBMilgFBVV95cUxNTHJjc0lpTWZJdWdIZGNBV1N6aFhxT3V1Zm0zQlRCT2ZzajIzeDdvbXZkZVEtSFRKaVNIVjREVHlmLWNmQUpkbW12blBuRTdGWjVVOFlLWVRRNVZ2dC1VRVRPLVNTWEVhV1V3cjE2RXdoeHJHMmtyZ2dSbUNSNjVxVGNlVm1XTG80N0NPeFBNVTk5MEdnLUE?oc=5" target="_blank">Oil prices sink and stocks leap worldwide on hopes for a reopening of the Strait of Hormuz - AP News</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; Energy; AI">
+            <td>2026-05-06</td>
+            <td>Geopolitics; Energy; AI</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiowFBVV95cUxQdThxeWVMUE1XTTQ2LXdsaUZjNU53NE9fWkd5Z2tXdjlMYnZQcUZVWnQ1YWFJM2RKY0ZoUHhXX1RsTlJmek1MSDdqdVIwUEd5VkxBcXBNVGRxRUZyTEY2MVdGN3JOS1JzRzJoOHRla1F0Q2JUbXVfZjlkSHd5UU1uaGxxNGVmd2Q3MzQwWGpDNHVFT0VPTDF6YmZQSEpEYTBydTdJ?oc=5" target="_blank">Online sleuths are raising more red flags around suspiciously timed Iran-war oil trades - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Energy">
+            <td>2026-05-06</td>
+            <td>Energy</td>
+            <td>Financial Times</td>
+            <td><a href="https://news.google.com/rss/articles/CBMihAFBVV95cUxNYjBNaGg1WklPQlhJeHduQ3ZEUy0zRHhFZTVIY0k5SVVXOWN0Z1pjd1JOVGtzVUtERmtCUnpTRUtQeThQSHFhckJGNDFlVkxmdXlZWFZIZmVjQzQ5UXRXNVVoS19peXRXc2lNMktKZE13NzBKT2FaUlEtVUtMUVdPM1ZjbXE?oc=5" target="_blank">‘Worst’ still ahead as oil price swings darken global trade outlook - Financial Times</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
+            <td>2026-05-06</td>
+            <td>Inflation; Energy</td>
+            <td>Yahoo Finance</td>
+            <td><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxPMUlQRVBTaUh3SUpUTndEdDRuYS1YdXloZTBxbUdaSTN2RnZyd1ZjMkR6YjZGWDgwMVRwRUoxc2ZqSUFUSjI1dWtRbllnbkpuSE53REMxTWFTZGE4bFIxVjMwa05WQ09sOWV4ODRSUTFLVkJFangxNDJxY0NzOE5GOElVVF9HSUk0aTQ2blJyd1gyUGo5WmVvQQ?oc=5" target="_blank">Oil prices tumble, stocks rally on Mideast peace hopes - Yahoo Finance</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Geopolitics; Energy">
+            <td>2026-05-06</td>
+            <td>Geopolitics; Energy</td>
+            <td>CNBC</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiswFBVV95cUxPVm5TUjZETVExR0JsVDBlN3ZHYVNwSl9BOEZxRGtxSGExc3hRTndMYS1qRHh6WWhldlFuSWVmd2hacUNPbWF2ZGNpYlV6NThDYUdNUHl0cjhBMDRYc0hycHVJRmpwQWlpVTZINHFYaGg1WHhpeEpNV1JkT21wbktNbXBpeFhPZzNGUTNvaC1YcjQxQndTLVd0WHo5dzhDV292enZtODlSNWY1emNLb2l4Qzg3NNIBuAFBVV95cUxOUVlqQVgxRmN0dG5BSzlXd0x1U2hsQlNHUGMzZ0lvM3hoUDNfMVRBaE1yNzRWaWxwc1EteDk4X3lnZ2o5eVA4TWFDTGN5M1Z2eVdHOWFIR21fclVmbUdySEh6V1BlUmtRYnJ3Zmh1eVVoc3hWWFlhZnlMcVVJOHQxT0REN05qMWt4eUhpcDUxVWlScEpfNWVveUV3MERyV0RIRXhjRHZIZWpGYjZ3dU90QmFoUHk4SXZG?oc=5" target="_blank">Even if an Iran deal calms energy markets, one oil stock can still stand out - CNBC</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Energy">
+            <td>2026-05-06</td>
+            <td>Energy</td>
+            <td>WSJ</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiqwFBVV95cUxOa01UVnEwbV9fZm9odlZBd2hsN3NUQ1NUTG1TbS1reE81cEN0ZG04bFBYbVlHREN0ekpXTFZyRzlmRnpzWFVxLU5Jc2phSDN1M09oZ1d6bjZTdFkwdS1IdHVSMC1ncU5SOUtNWmxQUHJzeWJTMFd4ZU1lNTg5Y2k5SkhtUWlsVWs0a0ZQNmdiUldDTnc3ckJwNDdvMEdheXh5Q0FZaXhZX0YwNFE?oc=5" target="_blank">Saudi Aramco Cuts Oil Price For June From Record High in May - WSJ</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Geopolitics; Energy; AI">
+            <td>2026-05-06</td>
+            <td>Inflation; Geopolitics; Energy; AI</td>
+            <td>The Guardian</td>
+            <td><a href="https://news.google.com/rss/articles/CBMivAFBVV95cUxQVkFUWHUxRTdoY3pVTDREWU5Lekg4bnQ1bk5EOXFZYzctdmhZeTZ2VkNqX182enRob2E3NHpPclY3VWk3SFd2dGNqVEJ4U3VaOFJkMFRJRXdDcl9fXzV6MkFfMkhIY1UxM245enYwRjJtV21rSEFYRVJXV04tU2tXM2U2MDJndk1nZUhOMEFtbEFtanhFUXkzSEZZOFBCeHlvU0ItamppRWRfVFNsbU1mRHZ5b3BxMTNNWW1IZA?oc=5" target="_blank">Oil prices fall as Trump says strait of Hormuz ‘open to all’ if Iran accepts deal - The Guardian</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation; Energy">
             <td>2026-05-05</td>
             <td>Inflation; Energy</td>
             <td>WSJ</td>
             <td><a href="https://news.google.com/rss/articles/CBMipwFBVV95cUxNcmVqTjBpbF9YUmdFWU4xd2R4RjhZLVg0ZzlCWUlHeTZDeVlHeWltdEg1cVR6VmtnQzB3N2h0bTc2YXdwWmNTaTBnQm5NQ2stZjJpckUwa1NZMHdqUVVoUWRfWWI1dENyOUxFa3NhNGdGVlJLQlBBR2gxZGVJWkoyOHFSRVlhazFrMzhwS2hVUjl2NzlOTGMwdEFiSkFqSVY2aUFjUlRZRQ?oc=5" target="_blank">Swiss Inflation Climbs to Highest Since 2024 as Energy Prices Surge - WSJ</a></td>
         </tr>
         
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; AI</td>
-            <td>Morningstar</td>
-            <td><a href="https://news.google.com/rss/articles/CBMimgFBVV95cUxNamxWQjJjeXJBSVhaNzRxcUJSNElfTzI4ZVFNQU9JV3NzTFZRUjRuQ0xWZ09FYWFVUGpzczIyOWdtQzg4bmFkSlN0TFNlT0ttUEhyTjV6ZzNjZm1NeE5ndUYxUGRqZDJrcHhhNTAxUU93TUtHMmRfdmVWbDV4eUVNZm51SndOUENGZW9aOGlVdzJYMUx4RDQwNWtB?oc=5" target="_blank">Market Minute: Earnings deliver, but inflation threat remains - Morningstar</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation</td>
-            <td>Yahoo Finance</td>
-            <td><a href="https://news.google.com/rss/articles/CBMirgFBVV95cUxOdm5kY1g3dWxMWlVvYnBQd0V0N3ZCN1FDaDE1clZWOHBlMUczUS1xdWx2c1cwMTFFRDVoaktDYnVBcFpBclZSZjNsY1gwSi1XWVNmWGFXWFFrMUtoRjFFaDlHR2RoaUNNS1lZUkp1NU1TYkNIYXZudHpkSzJnUFlnc3ZQUnZfd0VZTW5kMlI2NDJzWmxoUjlIRmpVUmtqNFlWc1d0LXRoNzRQdDZKaWc?oc=5" target="_blank">Sugar Prices Are Supported by Global Inflation Worries and Droughts. Where to Buy. - Yahoo Finance</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Energy</td>
-            <td>CNBC</td>
-            <td><a href="https://news.google.com/rss/articles/CBMic0FVX3lxTFBzOVhCQlZPNEdHdWNkWW90NkV4aGhERXc0T28tdGtxdkh1QS11RnMyRlhuX3FTUjNtUVA1UlRoUG1zQTJNYXptYjRTa0gwMW5RZVh2U1VJWWNRQ3JKV0dPWTVOX2dEelNLRkNUQmQtVE13alHSAXhBVV95cUxQbWJwelFrR1hRR1V4Q3Y1a1hkTkZWcWd0dTNJT1M1SkVuWnpPQkZEY2lnelNNaTBjZWFFcnU2WVlzaExRQml6QkNqOXlUNXhDX3N2ODhIdWVzbDdkbU1rZkpoX1VLNGswc3VkbmFJaHg5T2FhMDRjQTc?oc=5" target="_blank">Should you buy Series I bonds amid higher inflation? What experts say - CNBC</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Geopolitics</td>
-            <td>Seeking Alpha</td>
-            <td><a href="https://news.google.com/rss/articles/CBMi7gFBVV95cUxPc2Z0Sm9rR2lOZjBaNzFtbmkxWlJMR3V2dENHMDRrMHBxUkU2T1EyeWpuc1ZzOFhEcVh1OGpQU2h3eXRseEt1eXFoUGxxVkl3a3BpcHl0TDlGUjIyem1IYUxJSEt2enhzQlNlZHgxNGQ1THhNcXB6LXBZWGVpc2k4WjNNaVdmRmtOczdpaWUxVm5mNEltajc0eTRTamZDY2E0eFo0dWExQ1FUamNWbGxGb1dKSUFVTF91OGJjaXM5VjRRei1oVkpKT2VOdTlLb0x3UkFyVVNGYWRnOU5aU1dWQUgzOW9kd1hYWTdqRWN3?oc=5" target="_blank">Bond Market On Edge: Treasury Yields Spike, 30-Year To 5.03%, Mortgage Rates To 6.52%, As Gulf War Reheats - Seeking Alpha</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Energy; Growth</td>
-            <td>Investing.com</td>
-            <td><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQRnZXS2pYd1pZRW9SMldGa1UwSGdPOTRPNXpKLVpER0VIbTZEd2FYa1dTSWxvT2xIeEU5bDBwc3EtaDAxenYxdFRNSmpyRWdqVDhLNFd1VllyelR4TWhoRmZTS0FQTG5ocVo2NEMxNHVHeWdJcjBSVVltTEo0X3ExVHdyZWVGVGNCc0pUS3U5SHlFQ1JyUnRTRDloRWdaUEMwQ0FHNXExNnF0d0dOS2Jz?oc=5" target="_blank">Oil and Treasury Yields Surge as Markets Face Inflation Pressures - Investing.com</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Energy</td>
-            <td>AP News</td>
-            <td><a href="https://news.google.com/rss/articles/CBMikwFBVV95cUxPWEd0NzBZZEVzZGZscGJ5R01lMnlkMEJqa05vRWYzdlV2LVJNQ3IteHZxbmlHekMyZDRlZjdNN0pBd0gzbk9SREYyUE1HdldEQlBpbnZkVW8zWi00dGtpUnoxR09mQ2ZzVWtjYU5kZzB1YVlXVVNSMzRTam1hRFFhYnFCeXJVNE1ja3BlSGM2LUpoY1k?oc=5" target="_blank">Wall Street rallies to records after oil prices ease and corporate profits keep topping expectations - AP News</a></td>
-        </tr>
-        
-        <tr>
-            <td>2026-05-05</td>
-            <td>Inflation; Geopolitics; Energy; AI</td>
-            <td>CNBC</td>
-            <td><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxQc2czSUZRWjBWSjRqQjA2Yk1ucEN5SndpUC1iUU9GSjJuRUNXczJzV0ZiYnl6Z0dtMzN4bUhwR0ZfMUpRM3RDclNJYjB4aWZPM2RibkN0YUthMHNzR2JWVWc5VnVocjJ1cDV3dmxycDdOUDA3YjNRRXBfWnFPdDZESGdkNEdadkEyTUJpVlZ30gGTAUFVX3lxTE5XZDFyYjhCZ3EwYS14aGhPQzBudkFSTEJCUkZvUmRudzZoWG81VXM1aG9McS1ycjUyNWo0a0NlcDRVT3cxajJzWHRaWnNubDQzdjV4eFpWSW1uNE5OMTJMSi1MbGZIU21OX3lOZEl3OHRMbVoyVXFkb3FZUUVhZU92c2F6VmJ0N0NsakVqc2FYUnhKSQ?oc=5" target="_blank">Oil prices fall after U.S. says Iran ceasefire remains in place despite UAE attacks - CNBC</a></td>
-        </tr>
-        
-        <tr>
+        <tr class="headline-row" data-topic="Energy">
             <td>2026-05-05</td>
             <td>Energy</td>
-            <td>Fortune</td>
-            <td><a href="https://news.google.com/rss/articles/CBMiYkFVX3lxTE90NU0xSXBoczZZM21iUUpEeHVjMlJkRkNIdDNlcF9zQ0lkMXBqUEpWb3JOS1BvMjJHVEF1YXl6WWFUWDNwS2taLXh0Ri1oZG1uZU9wdkxyRTBuRkIxWTdNUEJB?oc=5" target="_blank">Current price of oil as of May 5, 2026 - Fortune</a></td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMirwFBVV95cUxQbnNPYWRxV29ucGhPLWtGbnhRNzNYa0F5aXVKYjNiR2VHMWduc3A1c1BqeU1CbUtobHpXazRZX0hGTkFYZ3czNDBxNVBEZnliVjR5d1FacXR5TW1kZ2xXM3pja0xfdlRlVEVBX0tXSmpwaXBFYTNlbE1uZjlyckJvSHNzMnpCWjhEMExReTlhY1F4NFZ4M3hBbFk2Nk5FM1pKUHU1dVpxdlBxeUdsajlr?oc=5" target="_blank">Canada's Suncor tops quarterly profit estimates as higher output offsets oil market turmoil - Reuters</a></td>
         </tr>
         
-        <tr>
+        <tr class="headline-row" data-topic="Inflation; AI">
             <td>2026-05-05</td>
-            <td>Inflation; Geopolitics; Energy</td>
-            <td>CNBC</td>
-            <td><a href="https://news.google.com/rss/articles/CBMiogFBVV95cUxPRWlwQjZEb3JDd0JxM3VNeXFMYUxoeHN6dWt1NW9VREF3aUZJd3FGd01XbWh3T2VqR3loTlZCcXpDdnpLMGEtNjFTWktHRWx1UVpIMnFqMlhfVnFld2xKRGdVUmtEWW5BWFRtRXVicDlKTUxndTk2d3gwYjRMYUtzLVpZZXNxOHRYamxVbm9JZUNhYTRuTGwzWjRodk83R2hoRGfSAacBQVVfeXFMTThjcVUyU3hoUWVYTmFLN2V0bEgyWmRETFVhOFBvc2hoWGstcVNocTc5X2NlejVFMTF6UDhMSHlEcENubVBxRW9pSGJ0QVo1TjJBa3RCM1dhVVVLOTk1MER4LWdxOE9XTkR2dDBTVzBVWGVYRmZZaWlYTXptZUNxdEgxaTlfeW5FclNfXzR6U3dUZk45YTRqOUs5OGc3MDVZRHFpT2tQZ0k?oc=5" target="_blank">Shares slide, oil prices elevated as U.S.-Iran truce prospects dim - CNBC</a></td>
+            <td>Inflation; AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiqgFBVV95cUxQelhHNFY5OF9TaXVXbkJFcUFaaFl3WGlUMFNObnZFX2NDbzJlM1o1LXVuSkxPdTdQN29IWHk1V0lzRVNfa0ZlZmF0dkFxaDB1NlhvUENISU5VLTVWSkhaUEZTWloyVTdLeF9iSTVyb2pXbVpRYlhjQ19qZjQ4TUFXd21JNkdseElscnpXM0N6T2xHNjdQTkd1QzF4WDJuVTNmbmlaSG1faDZkUQ?oc=5" target="_blank">South Korea inflation near two-year high, raising likelihood of rate hikes - Reuters</a></td>
         </tr>
         
-        <tr>
+        <tr class="headline-row" data-topic="Other">
             <td>2026-05-05</td>
-            <td>Inflation; Energy</td>
-            <td>Financial Times</td>
-            <td><a href="https://news.google.com/rss/articles/CBMicEFVX3lxTFA5S0FUbnJRd3k2cUd0ZlR0NktVeVRtVHdmQ0JxaXRiSUFvTjM1bVNyUlFnTlhYcjJGTi1MNFE1R1pCNzk3ekFJcFg4ZHk5ajFtNzB5Nmg5NDBrRnRCSmlUS2daVUZJUEtLakd6QWF5WE8?oc=5" target="_blank">The growing risk of a ‘non-linear spike’ in oil prices - Financial Times</a></td>
+            <td>Other</td>
+            <td>Business Insider</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinwFBVV95cUxNd1FkM3pSYWdQenJWQVk2R3dkZ09IVjBUS1FTb1ROYS1KYjBKNF85R1R6VE9aN2IxZ1JFQVFsLUI4SWJBWnBPOXA0S1BjRzQwOGNiNmpkS3FRTkVKMXFFVlp0a0FnajR0anRiOHNzakJQcWcweTE1dlF1amRPMWhnM3pLUkRHcDBjX1c5aDBBOXJxXzBzRHc4N2w2SE1GeGM?oc=5" target="_blank">US bond yields have crept above a dangerous level that could signal weakness for stocks - Business Insider</a></td>
         </tr>
         
-        <tr>
+        <tr class="headline-row" data-topic="Other">
             <td>2026-05-05</td>
-            <td>Geopolitics</td>
-            <td>CNBC</td>
-            <td><a href="https://news.google.com/rss/articles/CBMingFBVV95cUxOQXNBc3J4aE4tRVNYRlNPRFpaLXlKMTdhRFJvZzBsbmlRY25WclBMQ29vQkFLeHoyN0FZdU4xWUhXSWVkT2Z4SDlUMTRidU00WElWd2d1eWJoRk5jWW10ZkJDbGR5bWo4Nkh4dmI3WVpQU3VXZ0tGVlk0NjhhZG1yVmpJMV9fdnMtamlncnRfakJ1cnRqNHZIalNQS2JzUdIBowFBVV95cUxOaVBGT21fR21VRm80elJpTktaNmlQY2pLbHdWdkZ2czdMZmx5VnlfWUxTS2xoTlRJbi1zbGNwd2lVUGZTQlVtYUxKczFlR1hEa0J2SDUxT3ZFWlpPWEpYTW45RUM5d2lXMlRlZXVubXJSX081RWFFQzJNRlBobVlOdk40ckNpbzB3WDBmNkh1R3htOHpqRmRJTUpPMmNNcVBNei1B?oc=5" target="_blank">European stocks close higher as Iran war concerns weigh on sentiment - CNBC</a></td>
+            <td>Other</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMimAFBVV95cUxOODFHUXNpSDBWMS13cVFuZzRGWnBBVjU2N0k2T2gyLUhFd1dSUHlwYWNkTnBWMkRUaDRSS1RiTkJFT3lMMkRfTWozNVJKcXVLcnJuNXZiamd0SURBdUdlTFJHcGJfWEZvSjBOdVJZOTZaeldHeG1IYnU5WjNWbXpiZVJMWmh2Wmk3YzZHaDBpb0o0VUk5emU1MA?oc=5" target="_blank">All eyes on job market as Fed's rate-cut window narrows - Reuters</a></td>
         </tr>
         
-        <tr>
+        <tr class="headline-row" data-topic="Geopolitics; Energy; AI">
+            <td>2026-05-05</td>
+            <td>Geopolitics; Energy; AI</td>
+            <td>Reuters</td>
+            <td><a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxQR0J6Zk84cEp1ZDlmd3pzSXFMVEpwS1p1TVJBNWE3WmN1NmNLU2x5OE8wanBkV3dsRWtXUUl1US1VcHF0SzB1OGpUaWdjSHEwR2ZQWTVjOXlVM2tfNzNXbjlDS1FnUTk5NWNOMks0SWFhTDhHd2xhR2p2X0RZZG9jUEpxVE8zYUdSZWNKOUJfMUlfSDFSTjQ2TWtITE1sdVZNNTdNdFVyX25uQnNYSmk4ckUwUWxZZjFl?oc=5" target="_blank">Gold gains after hitting more than one-month low, Middle East risks linger - Reuters</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="Inflation">
+            <td>2026-05-05</td>
+            <td>Inflation</td>
+            <td>Business Insider</td>
+            <td><a href="https://news.google.com/rss/articles/CBMipAFBVV95cUxNc3B6X0U4dzJINlQ3d0FqT2RMcGRoNWlqSG10SXU4WmNjWWFsdFJpeWRmdGw5RDlLUl9rcGtFUG9yMnpJcDdCNDVvN0EyUldRV05rZWZDakIyLTFKRWp0dERsNGsxN0ZSV1NNZHViX0hRSDMyNklGX2pDQnp6X3o5eDIxWnZHcjhua3M5MmVITnVubVRLdmFUOGVZbnFCMzBBTDZZMQ?oc=5" target="_blank">Fed rate hike is back on the table as markets fear sticky inflation - Business Insider</a></td>
+        </tr>
+        
+        <tr class="headline-row" data-topic="AI">
             <td>2026-05-05</td>
             <td>AI</td>
-            <td>Yahoo Finance</td>
-            <td><a href="https://news.google.com/rss/articles/CBMijgFBVV95cUxPRkJxSUV5cE5IREs0UUV6dlQ1cXR4NWVnM1VlOVBJSkdwVi1kay1HWDREZ0gtbmVJVlFJMUlXMkJDOTB3M3ZyRHBUYTJPNXFZbXU2a245eExHRE5yS1p2UEdXNV9TeHZSc1hnbElxS3I4dlAyaTRoOEg3UHRnaXAyYzZzRmRJYVUtV2xaLXl3?oc=5" target="_blank">3 AI Stocks Under $50 That Could Be This Year's Biggest Surprises - Yahoo Finance</a></td>
+            <td>Seeking Alpha</td>
+            <td><a href="https://news.google.com/rss/articles/CBMinAFBVV95cUxOdjQ4VkRJdkxXLTdacTdaVzBlWHF1X2RZVmVzY2dMUVIwS3FQY2NHT1M4UFF5MmhSQmJzSms5Z2xmQWp4NnVUM21SandDRGJZaVhrb2phRjZpclV1MTVXRjU2Sm9Nc0Vpd3QtdlZjUVlwaHFsdEdzMEN6cEpJYXVIRjZsSVhpWHRmbW4ySmVFZDlCQmpUMTZfcVhnNlY?oc=5" target="_blank">Micron: I’m Trimming My Position Despite The AI Gold Rush (NASDAQ:MU) - Seeking Alpha</a></td>
         </tr>
         
-                </table>
-            </div>
+    </table>
+</div>
 
         </div>
+
+<script>
+    function filterNews(topic) {
+        const rows = document.querySelectorAll('.headline-row');
+        const label = document.getElementById('headline-filter-label');
+
+        rows.forEach(row => {
+            const rowTopic = row.getAttribute('data-topic') || '';
+
+            if (rowTopic.toLowerCase().includes(topic.toLowerCase())) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        label.textContent = topic;
+    }
+
+    function showAllNews() {
+        const rows = document.querySelectorAll('.headline-row');
+        const label = document.getElementById('headline-filter-label');
+
+        rows.forEach(row => {
+            row.style.display = '';
+        });
+
+        label.textContent = 'All topics';
+    }
+</script>
+
+</body>
+</html>
+
     </body>
     </html>
     
